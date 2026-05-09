@@ -1,0 +1,228 @@
+<style>
+.jmw-calc{max-width:1100px;margin:0 auto;padding:80px 24px;font-family:'DM Sans',sans-serif;color:#2D2D2D}
+.jmw-calc .back{font-size:.78rem;color:#B8943D;text-decoration:none;letter-spacing:.06em}
+.jmw-calc .back:hover{text-decoration:underline}
+.jmw-calc .lb{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#C5A55A;margin:24px 0 12px}
+.jmw-calc h1{font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;font-weight:500;color:#1B2A4A;line-height:1.2;margin-bottom:14px;max-width:680px}
+.jmw-calc .sub{font-size:1rem;color:#6B6B6B;line-height:1.7;max-width:680px;margin-bottom:56px}
+.jmw-calc .grid{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+.jmw-calc .inputs{background:#F5F3EF;padding:36px;border-radius:6px}
+.jmw-calc .inputs h3{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;color:#1B2A4A;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid #C5A55A}
+.jmw-calc .field{margin-bottom:22px}
+.jmw-calc .field label{display:block;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#1B2A4A;margin-bottom:8px}
+.jmw-calc .field-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.jmw-calc input[type=number]{width:100%;font-family:inherit;font-size:1rem;padding:11px 14px;border:1px solid #e5e2dc;border-radius:4px;background:#fff;color:#1B2A4A;outline:none;transition:border-color .2s}
+.jmw-calc input:focus{border-color:#C5A55A}
+.jmw-calc .suffix{color:#6B6B6B;font-size:.92rem;font-weight:500;min-width:42px;text-align:right}
+.jmw-calc .help{font-size:.74rem;color:#8a8a8a;margin-top:6px;line-height:1.5}
+.jmw-calc .results{padding:0}
+.jmw-calc .savings{padding-bottom:32px;border-bottom:1px solid #e5e2dc;margin-bottom:28px}
+.jmw-calc .savings .label{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C5A55A;margin-bottom:10px}
+.jmw-calc .savings .number{font-family:'Playfair Display',Georgia,serif;font-size:3.4rem;font-weight:500;color:#1B2A4A;line-height:1;margin-bottom:14px;letter-spacing:-.01em}
+.jmw-calc .savings .desc{font-size:.95rem;color:#6B6B6B;line-height:1.7;max-width:520px}
+.jmw-calc .breakdown{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.jmw-calc .stat{background:#fff;border-left:3px solid #C5A55A;padding:14px 18px}
+.jmw-calc .stat .lbl{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B6B6B;margin-bottom:6px}
+.jmw-calc .stat .val{font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;color:#1B2A4A}
+.jmw-calc .chart{background:#fff;border:1px solid #e5e2dc;border-radius:6px;padding:22px;margin-bottom:24px}
+.jmw-calc .chart h4{font-family:'Playfair Display',Georgia,serif;font-size:1rem;color:#1B2A4A;margin:0 0 4px}
+.jmw-calc .chart .lgd{display:flex;gap:22px;margin-bottom:14px;font-size:.78rem}
+.jmw-calc .chart .lgd span{display:inline-flex;align-items:center;gap:8px;color:#6B6B6B}
+.jmw-calc .chart .sw{width:14px;height:3px;border-radius:2px}
+.jmw-calc svg{width:100%;height:auto;display:block}
+.jmw-calc details{border-top:1px solid #e5e2dc;padding-top:18px;margin-bottom:22px}
+.jmw-calc details summary{font-size:.78rem;font-weight:600;color:#1B2A4A;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;outline:none}
+.jmw-calc details p{font-size:.88rem;color:#6B6B6B;line-height:1.7;margin-top:12px}
+.jmw-calc .disclaim{font-size:.76rem;color:#8a8a8a;line-height:1.65;padding:16px 20px;background:#faf8f4;border-left:3px solid #C5A55A;margin-bottom:0}
+.jmw-calc .next{text-align:center;padding:48px 24px 16px;margin-top:56px;border-top:1px solid #e5e2dc}
+.jmw-calc .next .lb{margin-bottom:10px}
+.jmw-calc .next h3{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:#1B2A4A;margin-bottom:10px;font-weight:500}
+.jmw-calc .next p{color:#6B6B6B;margin-bottom:22px;font-size:.95rem;max-width:480px;margin-left:auto;margin-right:auto}
+.jmw-calc .next a.btn{display:inline-block;background:#C5A55A;color:#1B2A4A;padding:13px 30px;border-radius:3px;text-decoration:none;font-weight:500;font-size:.88rem;transition:background .2s}
+.jmw-calc .next a.btn:hover{background:#E8D5A3}
+@media(max-width:768px){
+  .jmw-calc{padding:56px 18px}
+  .jmw-calc .grid{grid-template-columns:1fr;gap:36px}
+  .jmw-calc h1{font-size:1.8rem}
+  .jmw-calc .savings .number{font-size:2.4rem}
+  .jmw-calc .breakdown{grid-template-columns:1fr}
+  .jmw-calc .inputs{padding:24px}
+}
+</style>
+
+<div class="jmw-calc">
+  <a href="/resources" class="back">← Back to Resources</a>
+  <div class="lb">Calculator</div>
+  <h1>Fee Impact Analyzer</h1>
+  <p class="sub">A 1% advisory fee sounds small. Compounded over 30 years, it can quietly erase hundreds of thousands of dollars from your portfolio. Adjust the inputs below to see what fees actually cost you.</p>
+
+  <div class="grid">
+    <div class="inputs">
+      <h3>Your Inputs</h3>
+      <div class="field">
+        <label for="fia-start">Starting Portfolio</label>
+        <div class="field-row"><input type="number" id="fia-start" value="250000" min="0" step="1000"><span class="suffix">$</span></div>
+      </div>
+      <div class="field">
+        <label for="fia-contrib">Annual Contribution</label>
+        <div class="field-row"><input type="number" id="fia-contrib" value="12000" min="0" step="500"><span class="suffix">$</span></div>
+      </div>
+      <div class="field">
+        <label for="fia-years">Time Horizon</label>
+        <div class="field-row"><input type="number" id="fia-years" value="30" min="1" max="60" step="1"><span class="suffix">years</span></div>
+      </div>
+      <div class="field">
+        <label for="fia-return">Expected Annual Return (Gross)</label>
+        <div class="field-row"><input type="number" id="fia-return" value="7" min="0" max="20" step="0.1"><span class="suffix">%</span></div>
+        <div class="help">The long-term US stock market real return is roughly 7%. Adjust based on your asset mix.</div>
+      </div>
+      <div class="field">
+        <label for="fia-fee-a">Low-Fee Option</label>
+        <div class="field-row"><input type="number" id="fia-fee-a" value="0.10" min="0" max="5" step="0.01"><span class="suffix">%</span></div>
+        <div class="help">Typical broad-market index fund expense ratio.</div>
+      </div>
+      <div class="field">
+        <label for="fia-fee-b">Higher-Fee Option</label>
+        <div class="field-row"><input type="number" id="fia-fee-b" value="1.00" min="0" max="5" step="0.01"><span class="suffix">%</span></div>
+        <div class="help">Typical advisor management fee on top of underlying fund costs.</div>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="savings">
+        <div class="label">Cost of the Higher Fee</div>
+        <div class="number" id="fia-diff">$—</div>
+        <div class="desc" id="fia-desc">That's how much more the higher fee costs you over the period — money that compounds out of your portfolio instead of into it.</div>
+      </div>
+
+      <div class="breakdown">
+        <div class="stat">
+          <div class="lbl">Ending Value (Low Fee)</div>
+          <div class="val" id="fia-end-low">$—</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Ending Value (High Fee)</div>
+          <div class="val" id="fia-end-high">$—</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Total Fees Paid (Low)</div>
+          <div class="val" id="fia-fees-low">$—</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Total Fees Paid (High)</div>
+          <div class="val" id="fia-fees-high">$—</div>
+        </div>
+      </div>
+
+      <div class="chart">
+        <h4>Portfolio Growth Over Time</h4>
+        <div class="lgd">
+          <span><span class="sw" style="background:#C5A55A"></span>Low Fee</span>
+          <span><span class="sw" style="background:#6B6B6B"></span>High Fee</span>
+        </div>
+        <svg id="fia-chart" viewBox="0 0 600 280" preserveAspectRatio="none" aria-label="Chart comparing portfolio growth at low vs high fees"></svg>
+      </div>
+
+      <details>
+        <summary>How this works</summary>
+        <p>Each year, your contribution is added at the start, the portfolio grows by the gross return, and the management fee is deducted from the year-end balance. The difference between the two scenarios reflects both the direct fee drag and the compounding loss of returns on dollars paid in fees. The model assumes a constant rate of return — actual market returns vary year to year, which can amplify or dampen the gap. Taxes, withdrawals, inflation, and behavioral factors are not modeled.</p>
+      </details>
+
+      <div class="disclaim">
+        For educational purposes only. Not personalized investment advice. Past performance does not guarantee future results. Actual outcomes depend on market returns, taxes, behavior, and other factors not modeled here. The fees shown for "Higher-Fee Option" reflect a typical advisor management fee — many advisors deliver value that justifies their fee through tax management, behavioral coaching, planning, and asset location. The point of this tool is to make the cost of fees visible, not to argue against advice.
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <div class="lb">The Whitledge Brief</div>
+    <h3>One email per month. No hype.</h3>
+    <p>Evidence-based ideas on investing, planning, and making better financial decisions.</p>
+    <a href="/the-brief" class="btn">Subscribe →</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var ids = ['fia-start','fia-contrib','fia-years','fia-return','fia-fee-a','fia-fee-b'];
+  var fmt = function(n){ return (n < 0 ? '-$' : '$') + Math.round(Math.abs(n)).toLocaleString(); };
+
+  function project(start, contrib, years, gross, fee){
+    var grossR = gross / 100;
+    var feeR = fee / 100;
+    var path = [start];
+    var balance = start;
+    var totalFees = 0;
+    for (var y = 1; y <= years; y++){
+      balance += contrib;
+      var growth = balance * grossR;
+      var grown = balance + growth;
+      var yearFee = grown * feeR;
+      balance = Math.max(0, grown - yearFee);
+      totalFees += yearFee;
+      path.push(balance);
+    }
+    return { ending: balance, fees: totalFees, path: path };
+  }
+
+  function drawChart(low, high, years){
+    var svg = $('fia-chart');
+    var W = 600, H = 280, P = 44, PR = 18, PB = 28, PT = 10;
+    var max = Math.max.apply(null, low.concat(high));
+    if (max <= 0) max = 1;
+    var xs = function(i){ return P + (i / years) * (W - P - PR); };
+    var ys = function(v){ return H - PB - (v / max) * (H - PB - PT); };
+    var pathStr = function(arr){
+      return arr.map(function(v, i){
+        return (i === 0 ? 'M' : 'L') + xs(i).toFixed(1) + ',' + ys(v).toFixed(1);
+      }).join(' ');
+    };
+    var grid = '';
+    for (var i = 0; i <= 4; i++){
+      var v = (max * i) / 4;
+      var y = ys(v);
+      grid += '<line x1="' + P + '" y1="' + y.toFixed(1) + '" x2="' + (W - PR) + '" y2="' + y.toFixed(1) + '" stroke="#eeece6" stroke-width="1"/>';
+      grid += '<text x="' + (P - 6) + '" y="' + (y + 3.5).toFixed(1) + '" font-size="10" fill="#8a8a8a" text-anchor="end" font-family="DM Sans, sans-serif">' + fmt(v) + '</text>';
+    }
+    var xticks = '';
+    var ticks = Math.min(years, 6);
+    for (var j = 0; j <= ticks; j++){
+      var yr = Math.round((years * j) / ticks);
+      var x = xs(yr);
+      xticks += '<text x="' + x.toFixed(1) + '" y="' + (H - PB + 16) + '" font-size="10" fill="#8a8a8a" text-anchor="middle" font-family="DM Sans, sans-serif">' + yr + 'y</text>';
+    }
+    svg.innerHTML = grid + xticks +
+      '<path d="' + pathStr(high) + '" stroke="#6B6B6B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<path d="' + pathStr(low)  + '" stroke="#C5A55A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
+  }
+
+  function calc(){
+    var start = +$('fia-start').value || 0;
+    var contrib = +$('fia-contrib').value || 0;
+    var years = Math.max(1, Math.min(60, +$('fia-years').value || 30));
+    var gross = +$('fia-return').value || 0;
+    var feeA = +$('fia-fee-a').value || 0;
+    var feeB = +$('fia-fee-b').value || 0;
+
+    var low = project(start, contrib, years, gross, feeA);
+    var high = project(start, contrib, years, gross, feeB);
+    var diff = low.ending - high.ending;
+
+    $('fia-diff').textContent = fmt(diff);
+    $('fia-end-low').textContent = fmt(low.ending);
+    $('fia-end-high').textContent = fmt(high.ending);
+    $('fia-fees-low').textContent = fmt(low.fees);
+    $('fia-fees-high').textContent = fmt(high.fees);
+
+    var pct = low.ending > 0 ? ((diff / low.ending) * 100) : 0;
+    var pctTxt = (pct >= 0 ? '' : '-') + Math.abs(pct).toFixed(1) + '%';
+    $('fia-desc').textContent = 'That’s ' + pctTxt + ' of your low-fee ending balance — money that compounds out of your portfolio instead of into it.';
+
+    drawChart(low.path, high.path, years);
+  }
+
+  ids.forEach(function(id){ $(id).addEventListener('input', calc); });
+  calc();
+})();
+</script>

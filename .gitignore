@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.icloud
+
+# IDE / editor settings
+.vscode/
+.idea/
+.claude/
+
+# Working scratch files (decision artifacts from the build process — kept locally for reference, not pushed)
+nav-options-preview.html
+hero-options-preview.html
+tagline-options-preview.html
+tagline-newsletter-mockup.html
+
+# Backups + temp
+*.bak
+*.tmp
+*~

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Build Handoff — Jordan M. Whitledge</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2A4A;--navy-deep:#111D33;--gold:#C5A55A;--gold-light:#E8D5A3;--gold-hover:#B8943D;--white:#FFFFFF;--warm-gray:#F5F3EF;--charcoal:#2D2D2D;--slate:#6B6B6B}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;color:var(--charcoal);background:#fff;line-height:1.7}
+
+/* HANDOFF HEADER */
+.handoff-header{background:var(--navy);padding:60px 40px;color:#fff}
+.handoff-header h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:500;margin-bottom:8px}
+.handoff-header .sub{font-size:1rem;color:rgba(255,255,255,.5);margin-bottom:24px}
+.handoff-header .meta{display:flex;gap:40px;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.4)}
+.handoff-header .meta strong{color:var(--gold)}
+
+/* NAV */
+.toc{background:var(--warm-gray);padding:40px;border-bottom:1px solid #e5e2dc}
+.toc h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:16px}
+.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.toc a{font-size:.85rem;color:var(--navy);text-decoration:none;padding:8px 14px;background:#fff;border-radius:3px;border:1px solid #e5e2dc;transition:all .2s}
+.toc a:hover{border-color:var(--gold);color:var(--gold-hover)}
+
+/* SECTIONS */
+.section{max-width:900px;margin:0 auto;padding:60px 40px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy);margin-bottom:8px;padding-bottom:8px;border-bottom:2px solid var(--gold)}
+.section h3{font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hover);margin-top:32px;margin-bottom:10px}
+.section p{font-size:.9rem;color:var(--slate);max-width:680px;margin-bottom:12px}
+.note{background:#faf8f4;border-left:3px solid var(--gold);padding:14px 18px;font-size:.82rem;color:var(--charcoal);margin:16px 0}
+.divider{border:none;border-top:1px solid #e5e2dc;margin:48px 0}
+
+/* BRAND SPECS */
+.color-row{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}
+.color-swatch{width:100px;height:80px;border-radius:4px;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;font-size:.65rem;font-weight:600}
+.font-sample{margin:12px 0;padding:20px;background:var(--warm-gray);border-radius:4px}
+.font-sample h4{margin-bottom:4px;color:var(--navy)}
+.font-sample p{color:var(--slate);margin:0}
+
+/* SITEMAP */
+.sitemap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0}
+.sitemap-card{background:var(--warm-gray);padding:16px;border-radius:4px;border-left:3px solid var(--gold)}
+.sitemap-card h4{font-size:.85rem;color:var(--navy);margin-bottom:4px}
+.sitemap-card p{font-size:.75rem;color:var(--slate);margin:0}
+
+/* THEME TABLE */
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.82rem}
+th{text-align:left;padding:10px 14px;background:var(--navy);color:#fff;font-weight:500}
+td{padding:10px 14px;border-bottom:1px solid #e5e2dc}
+tr:hover td{background:#faf8f4}
+
+@media(max-width:768px){
+  .toc-grid{grid-template-columns:1fr}
+  .sitemap{grid-template-columns:1fr 1fr}
+  .color-row{gap:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="handoff-header">
+  <h1>Site Build Handoff</h1>
+  <div class="sub">Jordan M. Whitledge — jordanwhitledge.com</div>
+  <div class="meta">
+    <div><strong>Platform:</strong> Squarespace 7.1 (Fluid Engine)</div>
+    <div><strong>Domain:</strong> jordanwhitledge.com (connected)</div>
+    <div><strong>Scope:</strong> v1 — content site (calculators deferred to v2)</div>
+    <div><strong>Status:</strong> Ready for Squarespace build</div>
+  </div>
+</div>
+
+<!-- ===== v1 SCOPE NOTE ===== -->
+<div class="section" style="padding-top:32px;padding-bottom:0">
+  <div class="note" style="background:#1B2A4A;color:#fff;border-left:3px solid #C5A55A">
+    <strong style="color:#E8D5A3">v1 Scope &amp; Decisions</strong><br>
+    <span style="color:rgba(255,255,255,.78);font-size:.82rem;line-height:1.7">
+    • <strong style="color:#fff">Nav:</strong> utility credential strip on top (CFA® · CFP® · MBA · Adjunct Professor of Economics) + Playfair wordmark with 36px gold accent rule. Implement utility strip via Squarespace Announcement Bar (Settings → Marketing). Auto-hide on mobile.<br>
+    • <strong style="color:#fff">Contact email:</strong> <code style="color:#E8D5A3">jordan.whitledge@icloud.com</code> (will swap to <code style="color:#E8D5A3">jordan@jordanwhitledge.com</code> when iCloud+ Custom Domain is configured).<br>
+    • <strong style="color:#fff">LinkedIn:</strong> <code style="color:#E8D5A3">https://www.linkedin.com/in/jordanwhitledge/</code>.<br>
+    • <strong style="color:#fff">Calculators:</strong> deferred to v2. Resources page is just the lead magnet for now. Prototype lives in <code style="color:#E8D5A3">blocks/_v2-deferred/</code> — <strong>do not paste</strong> into Squarespace yet.<br>
+    • <strong style="color:#fff">Headshot:</strong> add via Squarespace Image Block on About page (file forthcoming).<br>
+    • <strong style="color:#fff">Native Squarespace blocks needed separately:</strong> Newsletter Block (home + resources), Form Block (contact + lead magnet), Image Block (About headshot), native Blog page (The Brief).
+    </span>
+  </div>
+</div>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<div class="toc">
+  <h2>Contents</h2>
+  <div class="toc-grid">
+    <a href="#brand">1. Brand Specs</a>
+    <a href="#sitemap">2. Site Map &amp; Navigation</a>
+    <a href="#themes">3. Section Themes</a>
+    <a href="#home">4. Home Page</a>
+    <a href="#about">5. About Page</a>
+    <a href="#speaking">6. Speaking Page</a>
+    <a href="#teaching">7. Teaching Page</a>
+    <a href="#reading">8. Reading Page</a>
+    <a href="#resources">9. Resources Page</a>
+    <a href="#contact">10. Contact Page</a>
+    <a href="#brief">11. The Brief (Blog)</a>
+    <a href="#preview">12. Full Site Preview</a>
+  </div>
+</div>
+
+<!-- ===== 1. BRAND SPECS ===== -->
+<div class="section" id="brand">
+  <h2>1. Brand Specs</h2>
+
+  <h3>Colors</h3>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#1B2A4A;color:#fff">Navy<br>#1B2A4A</div>
+    <div class="color-swatch" style="background:#111D33;color:#fff">Navy Deep<br>#111D33</div>
+    <div class="color-swatch" style="background:#C5A55A;color:#1B2A4A">Gold<br>#C5A55A</div>
+    <div class="color-swatch" style="background:#E8D5A3;color:#1B2A4A">Gold Light<br>#E8D5A3</div>
+    <div class="color-swatch" style="background:#B8943D;color:#fff">Gold Hover<br>#B8943D</div>
+    <div class="color-swatch" style="background:#F5F3EF;color:#2D2D2D;border:1px solid #e5e2dc">Warm Gray<br>#F5F3EF</div>
+    <div class="color-swatch" style="background:#2D2D2D;color:#fff">Charcoal<br>#2D2D2D</div>
+    <div class="color-swatch" style="background:#6B6B6B;color:#fff">Slate<br>#6B6B6B</div>
+  </div>
+
+  <h3>Typography</h3>
+  <div class="font-sample">
+    <h4 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500">Playfair Display — Headings</h4>
+    <p>Weight 500 (medium). Used for H1–H4, pull quotes, book titles, section headers.</p>
+  </div>
+  <div class="font-sample">
+    <h4 style="font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:400">DM Sans — Body, UI, Buttons</h4>
+    <p>Weight 300–600. Body text at 400, buttons at 500, labels at 600. Line height: 1.7 for body, 1.15 for headings.</p>
+  </div>
+
+  <h3>Buttons</h3>
+  <p><strong>Primary:</strong> Gold background (#C5A55A), navy text (#1B2A4A), 3px border radius, DM Sans 500, 0.88rem. Hover: #E8D5A3.</p>
+  <p><strong>Secondary:</strong> Transparent background, 1px white/navy border, 3px radius. Hover: border turns gold.</p>
+
+  <h3>Design Patterns</h3>
+  <p><strong>Section labels:</strong> DM Sans, 0.72rem, weight 500, letter-spacing 0.2em, uppercase, gold color.</p>
+  <p><strong>Gold accent line:</strong> 48px wide, 2px tall, gold. Used below section titles.</p>
+  <p><strong>Card style:</strong> Warm gray background, 4px radius, 3px gold top border on hover, subtle lift shadow.</p>
+  <p><strong>Quote style:</strong> Playfair Display italic, gold-light color, 2px gold left border with 20px padding.</p>
+
+  <h3>Positioning</h3>
+  <p><strong>Name:</strong> Jordan M. Whitledge (always include middle initial)</p>
+  <p><strong>Tagline:</strong> Common Sense Finance, Uncommon Wealth</p>
+  <p><strong>Credentials:</strong> CFA® charterholder, CFP® professional, MBA</p>
+  <p><strong>Tone:</strong> Calm, confident, clear. Educator-first. Evidence over hype. Warm but professional.</p>
+  <p><strong>Compliance note:</strong> Site must position as education and thought leadership — never direct client solicitation. Use "professional inquiries" not "become a client." Prospects self-select and initiate contact.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 2. SITEMAP ===== -->
+<div class="section" id="sitemap">
+  <h2>2. Site Map &amp; Navigation</h2>
+
+  <h3>Primary Navigation (left to right)</h3>
+  <p>Home · About · The Brief · Speaking · Teaching · Reading · Resources · Contact</p>
+  <p>Header action button: <strong>"Subscribe"</strong> → links to newsletter signup or /the-brief</p>
+
+  <h3>Page Structure</h3>
+  <div class="sitemap">
+    <div class="sitemap-card"><h4>Home</h4><p>Hero, Logo Bar, Offerings, Newsletter CTA</p></div>
+    <div class="sitemap-card"><h4>About</h4><p>Bio, Beliefs, In the Media, Quotes</p></div>
+    <div class="sitemap-card"><h4>The Brief</h4><p>Blog (native Squarespace)</p></div>
+    <div class="sitemap-card"><h4>Speaking</h4><p>3 talks + custom CTA</p></div>
+    <div class="sitemap-card"><h4>Teaching</h4><p>University + Workshops + Philosophy</p></div>
+    <div class="sitemap-card"><h4>Reading</h4><p>21 books, 4 categories</p></div>
+    <div class="sitemap-card"><h4>Resources</h4><p>Lead magnet (calculators deferred to v2)</p></div>
+    <div class="sitemap-card"><h4>Contact</h4><p>Info + form</p></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 3. SECTION THEMES ===== -->
+<div class="section" id="themes">
+  <h2>3. Section Themes (Squarespace Color Themes)</h2>
+  <p>The Squarespace palette has been set. Use these theme assignments for each section:</p>
+  <table>
+    <tr><th>Section</th><th>Theme</th><th>Background</th><th>Text</th><th>Accent</th></tr>
+    <tr><td>Hero</td><td>Darkest 1</td><td>Navy #1B2A4A</td><td>White</td><td>Gold</td></tr>
+    <tr><td>As Featured In</td><td>Darkest 1</td><td>Navy</td><td>White</td><td>Gold</td></tr>
+    <tr><td>Offerings</td><td>Lightest 1</td><td>White</td><td>Navy</td><td>Gold</td></tr>
+    <tr><td>About (Bio)</td><td>Darkest 1</td><td>Navy</td><td>White</td><td>Gold</td></tr>
+    <tr><td>In the Media</td><td>Darkest 1</td><td>Navy</td><td>White</td><td>Gold</td></tr>
+    <tr><td>Speaking</td><td>Light 2</td><td>Warm Gray</td><td>Navy</td><td>Gold</td></tr>
+    <tr><td>Teaching</td><td>Lightest 1</td><td>White</td><td>Navy</td><td>Gold</td></tr>
+    <tr><td>Reading</td><td>Lightest 1</td><td>White</td><td>Navy</td><td>Gold</td></tr>
+    <tr><td>Resources</td><td>Light 2</td><td>Warm Gray</td><td>Navy</td><td>Gold</td></tr>
+    <tr><td>Newsletter CTA</td><td>Darkest 1</td><td>Navy</td><td>White</td><td>Gold</td></tr>
+    <tr><td>Contact</td><td>Light 2</td><td>Warm Gray</td><td>Navy</td><td>Gold</td></tr>
+    <tr><td>Footer</td><td>Darkest 1</td><td>Navy</td><td>White</td><td>Gold</td></tr>
+  </table>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 4–11: PAGE CONTENT ===== -->
+<div class="section" id="home">
+  <h2>4. Home Page</h2>
+  <p>The Home page has 4 sections. Each section uses a Squarespace Code Block with pre-built HTML/CSS. The code files are provided separately as individual .html files (01 through 04).</p>
+
+  <h3>Section 1: Hero (Darkest 1)</h3>
+  <div class="note">File: <strong>01-home-hero.html</strong><br>Contains: Eyebrow text "Educator · Speaker · Advisor", H1 headline with italic treatment, subtitle paragraph, two CTA buttons (gold primary + outline secondary).</div>
+
+  <h3>Section 2: As Featured In (Darkest 1)</h3>
+  <div class="note">File: <strong>02-home-logos.html</strong><br>Contains: Text-based logo treatments for Reuters, CNBC, Investopedia, Financial Planning. Each links to the actual article. Can live inside the hero section or as its own section.</div>
+
+  <h3>Section 3: What You'll Find (Lightest 1)</h3>
+  <div class="note">File: <strong>03-home-offerings.html</strong><br>Contains: 3-column card grid — The Whitledge Brief, Speaking, Resources. Each card links to its respective page.</div>
+
+  <h3>Section 4: Newsletter CTA (Darkest 1)</h3>
+  <div class="note">File: <strong>04-home-newsletter.html</strong><br>Contains: "The Whitledge Brief. One email per month." heading + description. Add a Squarespace Newsletter Block or Form Block below this code block for the actual email capture.</div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="about">
+  <h2>5. About Page</h2>
+
+  <h3>Section 1: Bio (Darkest 1)</h3>
+  <div class="note">File: <strong>05-about-bio.html</strong><br>Contains: Headline "Most financial advice is sold, not taught. I take the opposite approach.", bio paragraphs, four belief statements with gold left borders. Add headshot as a separate Squarespace Image Block.</div>
+
+  <h3>Section 2: In the Media (Darkest 1)</h3>
+  <div class="note">File: <strong>06-about-media.html</strong><br>Contains: 5 media cards (Reuters, CNBC ×2, Investopedia, Financial Planning) each linking to the actual article, plus 2 pull quotes from CNBC interviews.</div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="speaking">
+  <h2>6. Speaking Page</h2>
+  <div class="note">File: <strong>07-speaking.html</strong> — Section theme: Light 2<br>Contains: 3 talk cards with titles, descriptions, audience takeaways, and "best for" tags. Plus a navy CTA bar for custom presentations linking to /contact.</div>
+
+  <h3>Talk Topics</h3>
+  <p><strong>Talk 01:</strong> The Behavior Gap: Why Discipline Beats Intelligence in Investing</p>
+  <p><strong>Talk 02:</strong> The Advisor's Alpha: Where Real Financial Value Comes From</p>
+  <p><strong>Talk 03:</strong> Don't Predict. Plan. — What Economics Teaches Us About Uncertainty</p>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="teaching">
+  <h2>7. Teaching Page</h2>
+  <div class="note">File: <strong>08-teaching.html</strong> — Section theme: Lightest 1<br>Contains: 2-column grid with University Teaching card, Workshops card, "What Makes It Different" card, and an italicized philosophy quote with gold left border.</div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="reading">
+  <h2>8. Reading Page</h2>
+  <div class="note">File: <strong>09-reading.html</strong> — Section theme: Lightest 1<br>Contains: 11 books across 2 categories (Investing &amp; Markets, Behavioral Finance &amp; Decision-Making). Each book has title, author, and one-line description. 3-column grid per category.</div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="resources">
+  <h2>9. Resources Page</h2>
+  <div class="note">File: <strong>10-resources.html</strong> — Section theme: Light 2<br>Contains: Featured lead magnet "The Advisor's Alpha Checklist" (Vanguard-research-based framework) in a navy card. Add a Squarespace Form Block beneath it for the lead magnet email capture. Calculators are deferred to v2 — page ends with a small italic "coming soon" line.</div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="contact">
+  <h2>10. Contact Page</h2>
+  <div class="note">File: <strong>11-contact.html</strong> — Section theme: Light 2<br>Contains: Heading, description, email link, LinkedIn link. Add a Squarespace Form Block below with fields: Name, Email, Subject (dropdown: Speaking Inquiry, Media Request, Educational Partnership, Professional Inquiry, Other), Message.</div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="brief">
+  <h2>11. The Brief (Blog)</h2>
+  <p>Use Squarespace's <strong>native Blog page</strong>. No custom code block needed.</p>
+  <div class="note">
+    <strong>Setup:</strong><br>
+    • Page title: The Brief (URL slug: /the-brief)<br>
+    • Section theme: Lightest 1<br>
+    • Layout: Grid or list (builder's choice)<br>
+    • Categories to create: Behavioral Finance, Investing, Tax Strategy, Economics, Planning<br>
+    • Blog name displayed as "The Whitledge Brief"
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="preview">
+  <h2>12. Full Site Preview</h2>
+  <p>A complete rendered HTML preview of the entire site is provided as a separate file: <strong>JMW_Site_Design_Reference.html</strong>. Open it in a browser to see the finished design — fonts, colors, layout, content, all sections, all pages scrolling as one document.</p>
+  <p>This is the visual reference. The individual code block files (01–12) contain the same content formatted for Squarespace Code Blocks.</p>
+
+  <h3>Additional Files Provided</h3>
+  <table>
+    <tr><th>File</th><th>Description</th></tr>
+    <tr><td>JMW_Site_Design_Reference.html</td><td>Complete rendered site preview — open in browser</td></tr>
+    <tr><td>01-home-hero.html</td><td>Home: Hero section code block</td></tr>
+    <tr><td>02-home-logos.html</td><td>Home: As Featured In logo bar</td></tr>
+    <tr><td>03-home-offerings.html</td><td>Home: What You'll Find cards</td></tr>
+    <tr><td>04-home-newsletter.html</td><td>Home: Newsletter CTA</td></tr>
+    <tr><td>05-about-bio.html</td><td>About: Bio + beliefs</td></tr>
+    <tr><td>06-about-media.html</td><td>About: In the Media + quotes</td></tr>
+    <tr><td>07-speaking.html</td><td>Speaking: Full page</td></tr>
+    <tr><td>08-teaching.html</td><td>Teaching: Full page</td></tr>
+    <tr><td>09-reading.html</td><td>Reading: Full page</td></tr>
+    <tr><td>10-resources.html</td><td>Resources: Full page</td></tr>
+    <tr><td>11-contact.html</td><td>Contact: Info block</td></tr>
+    <tr><td>12-credentials.html</td><td>Credentials bar (use anywhere)</td></tr>
+    <tr><td>CLAUDE.md</td><td>Project memory — brand specs, conventions, decisions, deferred work</td></tr>
+    <tr><td>blocks/_v2-deferred/calc-fee-impact.html</td><td>v2 calculator prototype — do not paste into Squarespace yet</td></tr>
+  </table>
+
+  <h3>Implementation Notes for Builder</h3>
+  <div class="note">
+    <strong>Code Blocks:</strong> Each .html file (01–12) goes into a Squarespace Code Block. Add block → search "Code" → toggle OFF "Display Source" → paste contents → save.<br><br>
+    <strong>Native blocks to add separately:</strong><br>
+    • Newsletter/Form Block for email signup (Home page + Resources page)<br>
+    • Form Block for contact form (Contact page)<br>
+    • Image Block for headshot (About page)<br>
+    • Blog page for The Brief (native Squarespace blog)<br><br>
+    <strong>Fonts:</strong> Already set in Site Styles — Playfair Display (headings) and DM Sans (body). Found via Squarespace's native Google Fonts integration.<br><br>
+    <strong>Colors:</strong> Palette already configured. White, Warm Gray, Slate, Gold, Navy.<br><br>
+    <strong>Footer:</strong> Set to Darkest 1 theme. Include: site name, brief description, nav links, newsletter signup, credentials, copyright.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="background:var(--navy);padding:40px;text-align:center;margin-top:60px">
+  <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:8px">Jordan M. Whitledge</p>
+  <p style="font-size:.78rem;color:rgba(255,255,255,.35)">Common Sense Finance, Uncommon Wealth</p>
+  <p style="font-size:.72rem;color:rgba(255,255,255,.25);margin-top:16px">Build handoff document — February 2026</p>
+</div>
+
+</body>
+</html>

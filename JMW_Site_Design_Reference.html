@@ -51,10 +51,33 @@
     display: flex; align-items: center; justify-content: space-between; height: 72px;
   }
   .nav-brand {
-    font-family: var(--heading); font-size: 1.15rem; font-weight: 500;
-    color: var(--white); text-decoration: none; letter-spacing: 0.02em;
+    font-family: var(--heading); font-size: 1.5rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--white); text-decoration: none;
+    position: relative; padding-bottom: 8px;
   }
-  .nav-brand span { color: var(--gold-light); font-weight: 400; font-size: 0.85rem; font-family: var(--body); margin-left: 12px; opacity: 0.8; }
+  .nav-brand::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 36px; height: 1px; background: var(--gold);
+  }
+  .utility-bar {
+    background: var(--navy-deep);
+    border-bottom: 1px solid rgba(197,165,90,0.08);
+  }
+  .utility-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 40px;
+    display: flex; align-items: center; justify-content: flex-end;
+    height: 34px;
+  }
+  .utility-creds {
+    font-family: var(--body); font-size: 0.62rem; font-weight: 500;
+    color: rgba(232,213,163,0.7); letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .utility-creds .dot {
+    display: inline-block; margin: 0 10px; color: var(--gold); opacity: 0.6;
+  }
+  @media(max-width:768px){
+    .utility-bar { display: none; }
+  }
   .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
   .nav-links a {
     font-family: var(--body); font-size: 0.82rem; font-weight: 400;
@@ -147,33 +170,6 @@
     opacity:0; animation: fadeUp 0.8s ease 0.6s forwards;
   }
   .hero-buttons { display:flex; gap:16px; flex-wrap:wrap; opacity:0; animation: fadeUp 0.8s ease 0.8s forwards; }
-
-  /* ==================== START HERE (Lazaroff inspired) ==================== */
-  .start-here { padding: 120px 40px; background: var(--warm-gray); }
-  .start-here-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
-  .start-here-left .section-title { max-width: 400px; }
-  .start-here-left p { color: var(--slate); line-height: 1.8; margin-bottom: 32px; max-width: 420px; }
-  .start-here-steps { display: flex; flex-direction: column; gap: 24px; }
-  .step-card {
-    background: var(--white); padding: 32px; border-radius: 4px;
-    border: 1px solid rgba(27,42,74,0.06); display: flex; gap: 24px; align-items: flex-start;
-    transition: all 0.35s ease; position: relative; overflow: hidden;
-  }
-  .step-card::before {
-    content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
-    background:var(--gold); transform:scaleY(0); transform-origin:top; transition:transform 0.35s;
-  }
-  .step-card:hover { transform:translateY(-3px); box-shadow: 0 12px 32px rgba(27,42,74,0.08); }
-  .step-card:hover::before { transform:scaleY(1); }
-  .step-number {
-    width:40px; height:40px; background:var(--navy); border-radius:50%;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-    font-family:var(--heading); font-size:1rem; font-weight:600; color:var(--gold);
-  }
-  .step-card h4 { font-family:var(--heading); font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:6px; }
-  .step-card p { font-size:0.9rem; color:var(--slate); line-height:1.6; margin-bottom:0; }
-  .step-card a { font-size:0.82rem; font-weight:500; color:var(--gold-hover); text-decoration:none; display:inline-flex; align-items:center; gap:4px; margin-top:8px; }
-  .step-card a:hover { gap:8px; }
 
   /* ==================== OFFERINGS ==================== */
   .offerings { padding: 120px 40px; background: var(--white); }
@@ -328,14 +324,32 @@
     pointer-events:none;
   }
   .about-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:80px; align-items:center; position:relative; z-index:1; }
-  .about-photo-placeholder {
-    width:100%; aspect-ratio:3/4; max-width:340px; background:var(--navy-light);
-    border-radius:4px; border:1px solid rgba(197,165,90,0.15);
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--body); font-size:0.85rem; color:rgba(255,255,255,0.3);
+  .about-photo {
+    width:100%; aspect-ratio:3/4; max-width:340px;
+    object-fit: cover; object-position: center top;
+    border-radius:4px; border:1px solid rgba(197,165,90,0.25);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(197,165,90,0.05);
+    display: block;
+  }
+  .about-photo-frame {
+    position: relative; width: 100%; max-width: 340px;
+  }
+  .about-photo-frame::after {
+    content: ''; position: absolute;
+    bottom: -14px; left: -14px; width: 60px; height: 2px;
+    background: var(--gold); opacity: 0.85;
   }
   .about .section-label { color:var(--gold); }
   .about .section-title { color:var(--white); max-width:500px; }
+  .about .about-headline {
+    font-family:var(--heading); font-weight:400;
+    font-size:clamp(1.9rem, 3.6vw, 2.9rem); line-height:1.2;
+    letter-spacing:-0.005em; color:var(--white);
+    max-width:600px; margin-bottom:32px;
+  }
+  .about .about-headline em {
+    font-style:italic; color:var(--gold-light); font-weight:400;
+  }
   .about p { color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:20px; max-width:540px; }
   .beliefs { margin-top:32px; display:flex; flex-direction:column; gap:10px; }
   .belief {
@@ -368,6 +382,12 @@
   }
   .newsletter-form button:hover { background:var(--gold-light); }
   .newsletter-note { font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:14px; }
+  .newsletter-tagline {
+    font-family: var(--heading); font-style: italic;
+    font-size: 1.05rem; font-weight: 400;
+    color: var(--gold-light); opacity: 0.9;
+    margin-bottom: 18px; letter-spacing: 0.005em;
+  }
 
   /* ==================== CONTACT ==================== */
   .contact { padding: 120px 40px; background: var(--warm-gray); }
@@ -436,7 +456,7 @@
 
   /* RESPONSIVE */
   @media (max-width:900px) {
-    .start-here-grid, .about-grid, .contact-grid, .teaching-grid { grid-template-columns:1fr; gap:40px; }
+    .about-grid, .contact-grid, .teaching-grid { grid-template-columns:1fr; gap:40px; }
     .offerings-grid, .posts-grid, .worksheet-grid, .calc-grid { grid-template-columns:1fr; gap:20px; }
     .lead-magnet { grid-template-columns:1fr; padding:36px 28px; }
     .lead-magnet-visual { display:none; }
@@ -454,12 +474,22 @@
 </head>
 <body>
 
+<!-- ===== DESIGN REFERENCE BANNER (not part of the live site) ===== -->
+<div style="background:#111D33; color:rgba(232,213,163,0.9); font-family:'DM Sans',sans-serif; font-size:0.78rem; padding:12px 20px; text-align:center; letter-spacing:0.04em; border-bottom:1px solid rgba(197,165,90,0.2); position:sticky; top:0; z-index:1000; line-height:1.5;">
+  <strong style="color:#C5A55A; letter-spacing:0.12em; text-transform:uppercase; font-size:0.7rem;">Design Reference</strong>
+  &nbsp;·&nbsp; This file shows every section of the site stacked together for visual review. The actual Squarespace site has a 4-section homepage; About, Speaking, Teaching, Reading, Resources, and Contact each live on their own pages.
+</div>
+
 <!-- NAV -->
 <nav id="navbar">
+  <div class="utility-bar">
+    <div class="utility-inner">
+      <div class="utility-creds">CFA<sup>®</sup> <span class="dot">·</span> CFP<sup>®</sup> <span class="dot">·</span> MBA <span class="dot">·</span> Adjunct Professor of Economics</div>
+    </div>
+  </div>
   <div class="nav-inner">
-    <a href="#" class="nav-brand">Jordan M. Whitledge <span>CFA, CFP®</span></a>
+    <a href="#home" class="nav-brand">Jordan M. Whitledge</a>
     <ul class="nav-links">
-      <li><a href="#start-here">Start Here</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#writing">The Brief</a></li>
       <li><a href="#speaking">Speaking</a></li>
@@ -479,8 +509,7 @@
     <h1>Common Sense Finance.<br><em>Uncommon Wealth.</em></h1>
     <p class="hero-subtitle">I write and teach about evidence-based investing, financial planning, and making smarter decisions with money. No hype. No predictions. Just principles that work.</p>
     <div class="hero-buttons">
-      <a href="#start-here" class="btn-primary">Start Here →</a>
-      <a href="#newsletter" class="btn-secondary">Subscribe to The Whitledge Brief →</a>
+      <a href="#newsletter" class="btn-primary">Subscribe to The Whitledge Brief →</a>
     </div>
   </div>
 </section>
@@ -508,50 +537,80 @@
   </div>
 </section>
 
-<!-- ===================== START HERE (Lazaroff-inspired) ===================== -->
-<section class="start-here" id="start-here">
+<!-- ===================== ABOUT ===================== -->
+<section class="about" id="about">
   <div class="container">
-    <div class="start-here-grid">
-      <div class="start-here-left">
-        <div class="section-label reveal">New Here?</div>
-        <h2 class="section-title reveal">Good things come to those who start.</h2>
-        <p class="reveal">Whether you're evaluating your current plan, rethinking your approach, or just trying to make sense of the noise — here's the best place to begin.</p>
-        <p class="reveal" style="font-size:0.9rem;">These are the same frameworks and tools I use in my own practice and classroom. No email required for any of them.</p>
+    <div class="about-grid">
+      <div class="about-photo-frame reveal">
+        <img class="about-photo" src="headshot.jpg" alt="Jordan M. Whitledge — CFA charterholder, CFP professional, MBA" loading="lazy">
       </div>
-      <div class="start-here-steps">
-        <div class="step-card reveal">
-          <div class="step-number">1</div>
-          <div>
-            <h4>Take the Financial Wellness Assessment</h4>
-            <p>A quick self-assessment to identify the biggest gaps in your financial plan — and where to focus first.</p>
-            <a href="#resources">Take the Assessment →</a>
-          </div>
+      <div>
+        <div class="section-label reveal">About</div>
+        <h2 class="about-headline reveal">Most financial advice is sold, not taught.<br><em>I take the opposite approach.</em></h2>
+        <p class="reveal">I'm a CFA® charterholder, CFP® professional, and MBA. I teach economics at the university level, speak on evidence-based financial planning, and write about the principles that actually build wealth over time.</p>
+        <p class="reveal">I started this site because most financial advice is too complicated, too trendy, or too focused on products. Good planning is simpler than the industry makes it. And the evidence is clear about what works.</p>
+        <div class="beliefs reveal">
+          <div class="belief">Evidence over opinion.</div>
+          <div class="belief">Planning beats predicting.</div>
+          <div class="belief">Your behavior matters more than your portfolio.</div>
+          <div class="belief">Discipline is the real edge.</div>
         </div>
-        <div class="step-card reveal">
-          <div class="step-number">2</div>
-          <div>
-            <h4>Download the Advisor's Alpha Checklist</h4>
-            <p>Based on Vanguard's research, this framework shows where real financial value comes from — and what most people miss.</p>
-            <a href="#resources">Get the Checklist →</a>
-          </div>
-        </div>
-        <div class="step-card reveal">
-          <div class="step-number">3</div>
-          <div>
-            <h4>Explore the Free Calculators</h4>
-            <p>Seven interactive tools for retirement readiness, tax-loss harvesting, Roth conversions, and more.</p>
-            <a href="#resources">Try the Calculators →</a>
-          </div>
-        </div>
-        <div class="step-card reveal">
-          <div class="step-number">4</div>
-          <div>
-            <h4>Read the Most Popular Articles</h4>
-            <p>Start with the pieces readers come back to most — on behavioral finance, tax strategy, and the real cost of bad advice.</p>
-            <a href="#writing">Read The Brief →</a>
-          </div>
+        <div style="margin-top:32px" class="reveal">
+          <a href="#contact" class="btn-primary" style="background:var(--gold); color:var(--navy);">Get in Touch →</a>
         </div>
       </div>
+    </div>
+
+    <!-- IN THE MEDIA -->
+    <div style="margin-top:80px; position:relative; z-index:1;">
+      <div class="section-label reveal" style="color:var(--gold);">In the Media</div>
+      <h3 class="reveal" style="font-family:var(--heading); font-size:1.4rem; font-weight:500; color:var(--white); margin-bottom:32px;">From Recent Interviews</h3>
+
+      <!-- Quote highlight -->
+      <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div style="border-left:2px solid var(--gold); padding-left:20px;">
+          <p style="font-family:var(--heading); font-size:1.05rem; font-style:italic; color:var(--gold-light); line-height:1.5;">"It's power versus freedom."</p>
+          <p style="font-size:0.72rem; color:var(--gold); margin-top:6px;">— CNBC, on Roth 401(k) vs. Roth IRA</p>
+        </div>
+        <div style="border-left:2px solid var(--gold); padding-left:20px;">
+          <p style="font-family:var(--heading); font-size:1.05rem; font-style:italic; color:var(--gold-light); line-height:1.5;">"I don't know that people understand the benefits of the tax-free growth."</p>
+          <p style="font-size:0.72rem; color:var(--gold); margin-top:6px;">— CNBC, on Roth 401(k) contributions</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== WRITING ===================== -->
+<section class="writing" id="writing">
+  <div class="container">
+    <div class="writing-header">
+      <div>
+        <div class="section-label reveal">The Whitledge Brief</div>
+        <h2 class="section-title reveal">Latest from The Brief</h2>
+      </div>
+      <a href="/the-brief" class="view-all reveal">View all posts →</a>
+    </div>
+    <div class="posts-grid">
+      <article class="post-card reveal">
+        <div class="post-category">Behavioral Finance</div>
+        <h3><a href="/the-brief">Why Your Financial Plan Matters More Than Your Portfolio</a></h3>
+        <p class="post-excerpt">The investment industry is obsessed with returns. But the evidence shows that planning decisions — not portfolio decisions — drive the outcomes that matter most.</p>
+        <span class="post-date">February 2026</span>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-category">Investing</div>
+        <h3><a href="/the-brief">The Hidden Cost of Doing Nothing</a></h3>
+        <p class="post-excerpt">Procrastination has a price. Here's how to calculate the real cost of delayed financial decisions — and a simple framework to start.</p>
+        <span class="post-date">February 2026</span>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-category">Economics</div>
+        <h3><a href="/the-brief">What I Teach My Students About Risk</a></h3>
+        <p class="post-excerpt">Risk isn't volatility. It isn't loss. And it definitely isn't what the financial news tells you it is. Here's how I explain it in the classroom.</p>
+        <span class="post-date">January 2026</span>
+      </article>
     </div>
   </div>
 </section>
@@ -583,227 +642,9 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
         <h3>Resources</h3>
-        <p>Free calculators, worksheets, and planning frameworks you can use today.</p>
-        <a href="#resources" class="card-link">Explore tools →</a>
+        <p>Planning frameworks and a downloadable guide to how I think about money, investing, and tax strategy.</p>
+        <a href="#resources" class="card-link">Get the guide →</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ABOUT ===================== -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-photo-placeholder reveal">Your headshot here</div>
-      <div>
-        <div class="section-label reveal">About</div>
-        <h2 class="section-title reveal">Most financial advice is sold, not taught.<br>I take the opposite approach.</h2>
-        <p class="reveal">I'm a CFA® charterholder, CFP® professional, and MBA. I teach economics at the university level, speak on evidence-based financial planning, and write about the principles that actually build wealth over time.</p>
-        <p class="reveal">I started this site because most financial advice is too complicated, too trendy, or too focused on products. Good planning is simpler than the industry makes it. And the evidence is clear about what works.</p>
-        <div class="beliefs reveal">
-          <div class="belief">Evidence over opinion.</div>
-          <div class="belief">Planning beats predicting.</div>
-          <div class="belief">Your behavior matters more than your portfolio.</div>
-          <div class="belief">Discipline is the real edge.</div>
-        </div>
-        <div style="margin-top:32px" class="reveal">
-          <a href="#contact" class="btn-primary" style="background:var(--gold); color:var(--navy);">Get in Touch →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- IN THE MEDIA -->
-    <div style="margin-top:80px; position:relative; z-index:1;">
-      <div class="section-label reveal" style="color:var(--gold);">In the Media</div>
-      <h3 class="reveal" style="font-family:var(--heading); font-size:1.4rem; font-weight:500; color:var(--white); margin-bottom:32px;">Featured Articles & Interviews</h3>
-
-      <div style="display:flex; flex-direction:column; gap:0;">
-        <a href="https://www.reuters.com/markets/on-the-money/how-navigate-financial-shock-layoff-2025-12-09/" target="_blank" class="reveal" style="display:grid; grid-template-columns:120px 1fr; gap:20px; padding:20px 24px; background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(255,255,255,0.06); text-decoration:none; transition:background 0.3s; border-radius:4px 4px 0 0;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-          <div><span style="font-size:0.9rem; font-weight:600; color:var(--white);">Reuters</span><br><span style="font-size:0.72rem; color:rgba(255,255,255,0.4);">Dec 2025</span></div>
-          <div><div style="font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;">Financial Planning</div><div style="font-family:var(--heading); font-size:1rem; color:var(--white); line-height:1.4;">How to Navigate the Financial Shock of a Layoff</div></div>
-        </a>
-        <a href="https://www.cnbc.com/2025/08/25/roth-401k-vs-roth-ira.html" target="_blank" class="reveal" style="display:grid; grid-template-columns:120px 1fr; gap:20px; padding:20px 24px; background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(255,255,255,0.06); text-decoration:none; transition:background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-          <div><span style="font-size:0.9rem; font-weight:600; color:var(--white);">CNBC</span><br><span style="font-size:0.72rem; color:rgba(255,255,255,0.4);">Aug 2025</span></div>
-          <div><div style="font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;">Retirement</div><div style="font-family:var(--heading); font-size:1rem; color:var(--white); line-height:1.4;">Roth IRA vs. Roth 401(k): How to Pick the Best Option</div></div>
-        </a>
-        <a href="https://www.cnbc.com/2025/08/24/roth-401k-contributions-tax-free.html" target="_blank" class="reveal" style="display:grid; grid-template-columns:120px 1fr; gap:20px; padding:20px 24px; background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(255,255,255,0.06); text-decoration:none; transition:background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-          <div><span style="font-size:0.9rem; font-weight:600; color:var(--white);">CNBC</span><br><span style="font-size:0.72rem; color:rgba(255,255,255,0.4);">Aug 2025</span></div>
-          <div><div style="font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;">Tax Strategy</div><div style="font-family:var(--heading); font-size:1rem; color:var(--white); line-height:1.4;">This Retirement Feature Offers Tax-Free Growth — but Only 18% Use It</div></div>
-        </a>
-        <a href="https://www.investopedia.com/economist-advises-investing-100-in-stocks-11897552" target="_blank" class="reveal" style="display:grid; grid-template-columns:120px 1fr; gap:20px; padding:20px 24px; background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(255,255,255,0.06); text-decoration:none; transition:background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-          <div><span style="font-size:0.9rem; font-weight:600; color:var(--white);">Investopedia</span><br><span style="font-size:0.72rem; color:rgba(255,255,255,0.4);">2025</span></div>
-          <div><div style="font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;">Investing</div><div style="font-family:var(--heading); font-size:1rem; color:var(--white); line-height:1.4;">100% Stocks? One Expert Makes the Case for All-Equity</div></div>
-        </a>
-        <a href="https://www.financial-planning.com/list/the-10-books-financial-advisors-loved-in-2025" target="_blank" class="reveal" style="display:grid; grid-template-columns:120px 1fr; gap:20px; padding:20px 24px; background:rgba(255,255,255,0.04); text-decoration:none; transition:background 0.3s; border-radius:0 0 4px 4px;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.04)'">
-          <div><span style="font-size:0.9rem; font-weight:600; color:var(--white);">Financial Planning</span><br><span style="font-size:0.72rem; color:rgba(255,255,255,0.4);">Dec 2025</span></div>
-          <div><div style="font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;">Industry</div><div style="font-family:var(--heading); font-size:1rem; color:var(--white); line-height:1.4;">The 10 Books Financial Advisors Loved in 2025</div></div>
-        </a>
-      </div>
-
-      <!-- Quote highlight -->
-      <div class="reveal" style="margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-        <div style="border-left:2px solid var(--gold); padding-left:20px;">
-          <p style="font-family:var(--heading); font-size:1.05rem; font-style:italic; color:var(--gold-light); line-height:1.5;">"It's power versus freedom."</p>
-          <p style="font-size:0.72rem; color:var(--gold); margin-top:6px;">— CNBC, on Roth 401(k) vs. Roth IRA</p>
-        </div>
-        <div style="border-left:2px solid var(--gold); padding-left:20px;">
-          <p style="font-family:var(--heading); font-size:1.05rem; font-style:italic; color:var(--gold-light); line-height:1.5;">"I don't know that people understand the benefits of the tax-free growth."</p>
-          <p style="font-size:0.72rem; color:var(--gold); margin-top:6px;">— CNBC, on Roth 401(k) contributions</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===================== RESOURCES ===================== -->
-<section class="resources" id="resources">
-  <div class="container">
-    <div class="resources-header">
-      <div>
-        <div class="section-label reveal">Resources</div>
-        <h2 class="section-title reveal">Everything you need to get your financial house in order.</h2>
-      </div>
-    </div>
-
-    <!-- Lead Magnet -->
-    <div class="lead-magnet reveal">
-      <div>
-        <div class="lead-magnet-badge">Featured Download</div>
-        <h3>The Advisor's Alpha Checklist</h3>
-        <p>A framework for evaluating what good financial advice should include — based on Vanguard's research. Whether you work with an advisor or manage your own money, this checklist shows where real value comes from.</p>
-        <form class="lead-magnet-form" onsubmit="event.preventDefault();">
-          <input type="email" placeholder="Your email address" aria-label="Email">
-          <button class="btn-primary" type="submit">Download →</button>
-        </form>
-      </div>
-      <div class="lead-magnet-visual">
-        <div class="checklist-mockup">
-          <h5>The Advisor's Alpha Checklist</h5>
-          <div class="sub">Jordan M. Whitledge, CFA, CFP®</div>
-          <div class="checklist-item"><div class="check-box checked"></div><span>Tax-loss harvesting</span></div>
-          <div class="checklist-item"><div class="check-box checked"></div><span>Asset location optimization</span></div>
-          <div class="checklist-item"><div class="check-box checked"></div><span>Behavioral coaching</span></div>
-          <div class="checklist-item"><div class="check-box"></div><span>Rebalancing discipline</span></div>
-          <div class="checklist-item"><div class="check-box"></div><span>Withdrawal sequencing</span></div>
-          <div class="checklist-item"><div class="check-box"></div><span>Total-return approach</span></div>
-          <div class="checklist-item"><div class="check-box"></div><span>Spending strategy</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Worksheets (Lazaroff-inspired) -->
-    <div class="worksheet-grid">
-      <div class="worksheet-card reveal">
-        <div class="worksheet-icon">📋</div>
-        <h4>Goal Planning Worksheet</h4>
-        <p>Design your financial future. Use this as the centerpiece of your plan.</p>
-        <div class="time">⏱ Complete in 20 minutes</div>
-        <a href="#" class="card-link">Download →</a>
-      </div>
-      <div class="worksheet-card reveal">
-        <div class="worksheet-icon">📊</div>
-        <h4>Net Worth Worksheet</h4>
-        <p>Take a snapshot of where you stand today. Track progress over time.</p>
-        <div class="time">⏱ Complete in 15 minutes</div>
-        <a href="#" class="card-link">Download →</a>
-      </div>
-      <div class="worksheet-card reveal">
-        <div class="worksheet-icon">💰</div>
-        <h4>Cash Flow Worksheet</h4>
-        <p>Figure out how much you have available to dedicate toward your goals.</p>
-        <div class="time">⏱ Complete in 15 minutes</div>
-        <a href="#" class="card-link">Download →</a>
-      </div>
-      <div class="worksheet-card reveal">
-        <div class="worksheet-icon">🔍</div>
-        <h4>How to Interview a Financial Advisor</h4>
-        <p>Hiring an advisor is a big decision. This process increases your odds of finding a good one.</p>
-        <div class="time">⏱ Complete in 10 minutes</div>
-        <a href="#" class="card-link">Download →</a>
-      </div>
-      <div class="worksheet-card reveal">
-        <div class="worksheet-icon">📝</div>
-        <h4>Tax Drag Audit</h4>
-        <p>10 questions to uncover hidden tax inefficiencies eroding your returns.</p>
-        <div class="time">⏱ Complete in 10 minutes</div>
-        <a href="#" class="card-link">Download →</a>
-      </div>
-      <div class="worksheet-card reveal">
-        <div class="worksheet-icon">🧭</div>
-        <h4>Financial Wellness Assessment</h4>
-        <p>A self-assessment to identify the biggest gaps in your financial plan.</p>
-        <div class="time">⏱ Complete in 5 minutes</div>
-        <a href="#" class="card-link">Take the Assessment →</a>
-      </div>
-    </div>
-
-    <!-- Calculators -->
-    <h3 class="calc-section-title reveal">Interactive Calculators</h3>
-    <div class="calc-grid">
-      <div class="calc-card reveal">
-        <h5>Retirement Readiness Scorecard</h5>
-        <p>Get a score from 1–100 with actionable next steps.</p>
-        <a href="#">Try it →</a>
-      </div>
-      <div class="calc-card reveal">
-        <h5>Tax-Loss Harvesting Estimator</h5>
-        <p>Estimate the benefit of strategic tax-loss harvesting.</p>
-        <a href="#">Try it →</a>
-      </div>
-      <div class="calc-card reveal">
-        <h5>Roth Conversion Analysis</h5>
-        <p>Model the long-term impact of converting to Roth.</p>
-        <a href="#">Try it →</a>
-      </div>
-      <div class="calc-card reveal">
-        <h5>Portfolio Visualizer</h5>
-        <p>See how allocation affects your long-term outcomes.</p>
-        <a href="#">Try it →</a>
-      </div>
-      <div class="calc-card reveal">
-        <h5>Fee Impact Analyzer</h5>
-        <p>See how fees compound over 10, 20, 30 years.</p>
-        <a href="#">Try it →</a>
-      </div>
-      <div class="calc-card reveal">
-        <h5>Social Security Optimizer</h5>
-        <p>Compare claiming at 62 vs. 67 vs. 70.</p>
-        <a href="#">Try it →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WRITING ===================== -->
-<section class="writing" id="writing">
-  <div class="container">
-    <div class="writing-header">
-      <div>
-        <div class="section-label reveal">The Whitledge Brief</div>
-        <h2 class="section-title reveal">Latest from The Brief</h2>
-      </div>
-      <a href="#" class="view-all reveal">View all posts →</a>
-    </div>
-    <div class="posts-grid">
-      <article class="post-card reveal">
-        <div class="post-category">Behavioral Finance</div>
-        <h3><a href="#">Why Your Financial Plan Matters More Than Your Portfolio</a></h3>
-        <p class="post-excerpt">The investment industry is obsessed with returns. But the evidence shows that planning decisions — not portfolio decisions — drive the outcomes that matter most.</p>
-        <span class="post-date">February 2026</span>
-      </article>
-      <article class="post-card reveal">
-        <div class="post-category">Investing</div>
-        <h3><a href="#">The Hidden Cost of Doing Nothing</a></h3>
-        <p class="post-excerpt">Procrastination has a price. Here's how to calculate the real cost of delayed financial decisions — and a simple framework to start.</p>
-        <span class="post-date">February 2026</span>
-      </article>
-      <article class="post-card reveal">
-        <div class="post-category">Economics</div>
-        <h3><a href="#">What I Teach My Students About Risk</a></h3>
-        <p class="post-excerpt">Risk isn't volatility. It isn't loss. And it definitely isn't what the financial news tells you it is. Here's how I explain it in the classroom.</p>
-        <span class="post-date">January 2026</span>
-      </article>
     </div>
   </div>
 </section>
@@ -928,31 +769,53 @@
       <div class="calc-card reveal"><h5>The Behavior Gap</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Carl Richards</p><p>Simple sketches that explain why we sabotage our own plans.</p></div>
     </div>
 
-    <!-- Financial Planning -->
-    <h3 class="reveal" style="font-family:var(--heading); font-size:1.15rem; font-weight:600; color:var(--navy); margin-bottom:20px; padding-bottom:8px; border-bottom:2px solid var(--gold); display:inline-block;">Financial Planning & Wealth</h3>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:48px;">
-      <div class="calc-card reveal"><h5>The Millionaire Next Door</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Stanley & Danko</p><p>Wealth is built through discipline, not income.</p></div>
-      <div class="calc-card reveal"><h5>Die With Zero</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Bill Perkins</p><p>A provocative case for spending your money before you die.</p></div>
-      <div class="calc-card reveal"><h5>The Simple Path to Wealth</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">JL Collins</p><p>Financial independence explained with refreshing clarity.</p></div>
-      <div class="calc-card reveal"><h5>Your Money or Your Life</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Robin & Dominguez</p><p>Redefining the relationship between money and fulfillment.</p></div>
-      <div class="calc-card reveal"><h5>The Funded Contentment</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Joe Duran</p><p>The book that changed how I think about what "enough" means.</p></div>
+  </div>
+</section>
+
+<!-- ===================== RESOURCES ===================== -->
+<section class="resources" id="resources">
+  <div class="container">
+    <div class="resources-header">
+      <div>
+        <div class="section-label reveal">Resources</div>
+        <h2 class="section-title reveal">Start with the Advisor's Alpha Checklist.</h2>
+      </div>
     </div>
 
-    <!-- Economics -->
-    <h3 class="reveal" style="font-family:var(--heading); font-size:1.15rem; font-weight:600; color:var(--navy); margin-bottom:20px; padding-bottom:8px; border-bottom:2px solid var(--gold); display:inline-block;">Economics & Big-Picture Thinking</h3>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
-      <div class="calc-card reveal"><h5>Capital in the Twenty-First Century</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Thomas Piketty</p><p>The definitive study on wealth inequality and its drivers.</p></div>
-      <div class="calc-card reveal"><h5>Narrative Economics</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Robert Shiller</p><p>How stories — not data — drive economic events.</p></div>
-      <div class="calc-card reveal"><h5>Fooled by Randomness</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Nassim Taleb</p><p>Why we confuse luck with skill in markets and life.</p></div>
-      <div class="calc-card reveal"><h5>The Armchair Economist</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Steven Landsburg</p><p>Economics applied to everyday life with wit and clarity.</p></div>
-      <div class="calc-card reveal"><h5>Freakonomics</h5><p style="font-style:italic; font-size:0.78rem; color:var(--gold-hover); margin-bottom:4px;">Levitt & Dubner</p><p>The hidden side of everything — incentives explained.</p></div>
+    <!-- Lead Magnet -->
+    <div class="lead-magnet reveal">
+      <div>
+        <div class="lead-magnet-badge">Featured Download</div>
+        <h3>The Advisor's Alpha Checklist</h3>
+        <p>A framework for evaluating what good financial advice should include — based on Vanguard's research. Whether you work with an advisor or manage your own money, this checklist shows where real value comes from.</p>
+        <form class="lead-magnet-form" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="Your email address" aria-label="Email">
+          <button class="btn-primary" type="submit">Download →</button>
+        </form>
+      </div>
+      <div class="lead-magnet-visual">
+        <div class="checklist-mockup">
+          <h5>The Advisor's Alpha Checklist</h5>
+          <div class="sub">Jordan M. Whitledge, CFA, CFP®</div>
+          <div class="checklist-item"><div class="check-box checked"></div><span>Tax-loss harvesting</span></div>
+          <div class="checklist-item"><div class="check-box checked"></div><span>Asset location optimization</span></div>
+          <div class="checklist-item"><div class="check-box checked"></div><span>Behavioral coaching</span></div>
+          <div class="checklist-item"><div class="check-box"></div><span>Rebalancing discipline</span></div>
+          <div class="checklist-item"><div class="check-box"></div><span>Withdrawal sequencing</span></div>
+          <div class="checklist-item"><div class="check-box"></div><span>Total-return approach</span></div>
+          <div class="checklist-item"><div class="check-box"></div><span>Spending strategy</span></div>
+        </div>
+      </div>
     </div>
+
+    <p class="reveal" style="font-family:var(--body); font-size:0.9rem; color:var(--slate); font-style:italic; margin-top:40px; text-align:center;">Interactive calculators and additional planning tools coming soon.</p>
   </div>
 </section>
 
 <!-- ===================== NEWSLETTER ===================== -->
 <section class="newsletter" id="newsletter">
   <div class="newsletter-inner">
+    <div class="newsletter-tagline reveal">"Good things come to those who start."</div>
     <div class="section-label reveal" style="color:var(--gold);">Newsletter</div>
     <h2 class="reveal">The Whitledge Brief.<br>One email per month.</h2>
     <p class="reveal">Evidence-based ideas on investing, planning, and making better financial decisions. Short. Substantive. No hype.</p>
@@ -973,8 +836,8 @@
         <h2 class="section-title reveal">Get In Touch</h2>
         <p class="section-subtitle reveal">For speaking engagements, media inquiries, educational partnerships, or professional questions — I'd enjoy hearing from you.</p>
         <div style="margin-top:32px" class="reveal">
-          <p style="font-size:0.9rem; color:var(--slate); margin-bottom:8px;">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="33595c4157525d73595c4157525d445b5a475f565754561d505c5e">[email&#160;protected]</a></p>
-          <p style="font-size:0.9rem; color:var(--slate);">LinkedIn: /in/jordanwhitledge</p>
+          <p style="font-size:0.9rem; color:var(--slate); margin-bottom:8px;">Email: <a href="mailto:jordan.whitledge@icloud.com" style="color:var(--gold-hover); text-decoration:none;">jordan.whitledge@icloud.com</a></p>
+          <p style="font-size:0.9rem; color:var(--slate);">LinkedIn: <a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener" style="color:var(--gold-hover); text-decoration:none;">linkedin.com/in/jordanwhitledge</a></p>
         </div>
       </div>
       <form class="contact-form reveal" onsubmit="event.preventDefault();">
@@ -1028,7 +891,6 @@
       <div class="footer-links">
         <h5>Pages</h5>
         <ul>
-          <li><a href="#start-here">Start Here</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#writing">The Brief</a></li>
           <li><a href="#speaking">Speaking</a></li>
@@ -1041,9 +903,9 @@
       <div class="footer-links">
         <h5>Connect</h5>
         <ul>
-          <li><a href="#">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
-          <li><a href="#contact">Email</a></li>
+          <li><a href="mailto:jordan.whitledge@icloud.com">Email</a></li>
         </ul>
       </div>
       <div class="footer-newsletter">
@@ -1056,13 +918,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Jordan M. Whitledge. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Disclaimers</a></p>
-      <p><a href="#">LinkedIn</a></p>
+      <p>© 2026 Jordan M. Whitledge. All rights reserved. · <a href="/privacy">Privacy Policy</a> · <a href="/disclaimers">Disclaimers</a></p>
+      <p><a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Nav scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
@@ -1078,6 +940,19 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Smooth scroll for nav links
+  // Smooth scroll for in-page anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListe
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
