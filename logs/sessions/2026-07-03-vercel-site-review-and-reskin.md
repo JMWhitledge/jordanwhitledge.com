@@ -5,7 +5,7 @@
 ## Decisions
 - Canonical site is the Vercel single-page `index.html`; **Squarespace is being canceled and the domain moved**. (Resolves the two-track drift; CLAUDE.md now stale.)
 - Identity is **advisor + educator, practitioner as anchor**; hero adopts "The practice keeps the teaching real. The teaching keeps the advice clear." Supersedes educator-only posture.
-- Design system swapped to **Warm Practitioner** (Fraunces / Source Sans 3, cream paper `#F8F3EA`, warm-grey ink `#46403A`, gold `#C0956C` hairline-only) + **The Essayist** (Newsreader for the Brief). Kept distinct from DCM (`#212e52` / `#c4b082`).
+- Design system swapped to **Warm Practitioner** (Fraunces / Source Sans 3, cream paper `#F8F3EA`, warm-grey ink `#46403A`, gold `#B5823F` hairline-only (warmed from an initial `#C0956C` that read mustard)) + **The Essayist** (Newsreader for the Brief). Kept distinct from DCM (`#212e52` / `#c4b082`).
 - Reading list folded under Resources; top nav trimmed to 7 items.
 - Forms stack: **Beehiiv** (newsletter + lead-magnet delivery) + **Formspree** (contact) recommended.
 - Em-dash rule relaxed to "sparing."
