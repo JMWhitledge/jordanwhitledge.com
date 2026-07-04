@@ -14,7 +14,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23B5823F' text-anchor='middle'%3EJW%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #1B2A4A;
@@ -31,7 +31,7 @@
     --charcoal: #46403A;
     --slate: #6F675C;
     --green: #5A9E6F;
-    --heading: 'Fraunces', Georgia, serif;
+    --heading: 'Newsreader', Georgia, serif;
     --body: 'Source Sans 3', -apple-system, sans-serif;
     --essay: 'Newsreader', Georgia, serif;
   }
@@ -101,9 +101,9 @@
   .nav-links a:hover::after { width: 100%; }
   .nav-cta {
     font-size: 0.78rem !important; font-weight: 600 !important; color: var(--navy) !important;
-    background: var(--paper); border: 1px solid var(--gold); padding: 7px 19px; border-radius: 3px; transition: all 0.3s !important;
+    background: var(--gold-light); border: none; padding: 8px 20px; border-radius: 3px; transition: all 0.3s !important;
   }
-  .nav-cta:hover { background: var(--white) !important; transform: translateY(-1px); }
+  .nav-cta:hover { background: var(--gold) !important; transform: translateY(-1px); }
   .nav-cta::after { display: none !important; }
   .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
   .nav-toggle span { display:block; width:24px; height:2px; background:var(--gold); transition:all 0.3s; }
@@ -127,10 +127,10 @@
   .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
     font-family: var(--body); font-size: 0.88rem; font-weight: 600;
-    color: var(--navy); background: var(--paper); padding: 12px 27px;
-    border: 1px solid var(--gold); border-radius: 3px; text-decoration: none; cursor: pointer; transition: all 0.3s;
+    color: var(--navy); background: var(--gold-light); padding: 13px 28px;
+    border: none; border-radius: 3px; text-decoration: none; cursor: pointer; transition: all 0.3s;
   }
-  .btn-primary:hover { background: var(--white); border-color: var(--gold-hover); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(27,42,74,0.18); }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(181,130,63,0.30); }
   .btn-secondary {
     display: inline-flex; align-items: center; gap: 8px;
     font-family: var(--body); font-size: 0.88rem; font-weight: 400;
@@ -156,7 +156,7 @@
 
   /* ==================== HERO ==================== */
   .hero {
-    min-height: 100vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden;
+    min-height: 86vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden;
   }
   .hero::before {
     content:''; position:absolute; inset:0;
@@ -168,7 +168,7 @@
     content:''; position:absolute; right:-80px; top:50%; transform:translateY(-50%);
     width:500px; height:500px; border:1px solid rgba(181,130,63,0.08); border-radius:50%; pointer-events:none;
   }
-  .hero-inner { max-width:1200px; margin:0 auto; padding:120px 40px 80px; position:relative; z-index:1; }
+  .hero-inner { max-width:1200px; margin:0 auto; padding:116px 40px 72px; position:relative; z-index:1; }
   .hero-eyebrow {
     font-family:var(--body); font-size:0.8rem; font-weight:500; letter-spacing:0.2em;
     text-transform:uppercase; color:var(--gold); margin-bottom:32px;
@@ -183,7 +183,7 @@
   .hero h1 em { font-style:italic; color:var(--gold-light); }
   .hero-subtitle {
     font-family:var(--body); font-size:1.15rem; font-weight:300;
-    color:rgba(255,255,255,0.65); max-width:560px; line-height:1.8; margin-bottom:48px;
+    color:rgba(255,255,255,0.65); max-width:620px; line-height:1.75; margin-bottom:44px;
     opacity:0; animation: fadeUp 0.8s ease 0.6s forwards;
   }
   .hero-buttons { display:flex; gap:16px; flex-wrap:wrap; opacity:0; animation: fadeUp 0.8s ease 0.8s forwards; }
@@ -397,10 +397,10 @@
   .newsletter-form input:focus { border-color:var(--gold); }
   .newsletter-form button {
     font-family:var(--body); font-size:0.88rem; font-weight:600;
-    color:var(--navy); background:var(--paper); border:1px solid var(--gold); padding:12px 25px;
+    color:var(--navy); background:var(--gold-light); border:none; padding:13px 26px;
     border-radius:3px; cursor:pointer; transition:all 0.3s; white-space:nowrap;
   }
-  .newsletter-form button:hover { background:var(--white); }
+  .newsletter-form button:hover { background:var(--gold); }
   .newsletter-note { font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:14px; }
   .newsletter-tagline {
     font-family: var(--heading); font-style: italic;
@@ -456,7 +456,7 @@
   .footer-newsletter-form input::placeholder { color:rgba(255,255,255,0.3); }
   .footer-newsletter-form button {
     font-family:var(--body); font-size:0.78rem; font-weight:600;
-    color:var(--navy); background:var(--paper); border:1px solid var(--gold); padding:9px 17px;
+    color:var(--navy); background:var(--gold-light); border:none; padding:10px 18px;
     border-radius:3px; cursor:pointer;
   }
   .footer-bottom {
@@ -470,16 +470,11 @@
   /* ==================== EDITORIAL PULL-QUOTE ==================== */
   .statement {
     background: var(--navy-deep); position: relative; overflow: hidden;
-    padding: 140px 40px; text-align: center;
+    padding: 104px 40px; text-align: center;
   }
   .statement::before {
     content:''; position:absolute; inset:0;
     background: radial-gradient(ellipse at 50% 50%, rgba(181,130,63,0.07) 0%, transparent 60%);
-    pointer-events:none;
-  }
-  .statement::after {
-    content:'“'; position:absolute; top:20px; left:50%; transform:translateX(-50%);
-    font-family:var(--heading); font-size:9rem; color:rgba(181,130,63,0.14); line-height:1;
     pointer-events:none;
   }
   .statement-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
@@ -606,20 +601,20 @@
 <!-- ===================== AS FEATURED IN (Variant 2 - Navy) ===================== -->
 <section style="padding:0 40px;">
   <div style="max-width:1200px; margin:0 auto;">
-    <div style="background:var(--navy); border-radius:6px; padding:36px 48px; margin-top:-40px; position:relative; z-index:2;">
+    <div style="background:var(--white); border:1px solid var(--warm-gray-2); box-shadow:0 14px 44px rgba(27,42,74,0.12); border-radius:6px; padding:32px 48px; margin-top:-44px; position:relative; z-index:2;">
       <div style="text-align:center; font-family:var(--body); font-size:0.68rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:24px;">As Featured In</div>
       <div style="display:flex; align-items:center; justify-content:center; gap:56px; flex-wrap:wrap;">
         <a href="https://www.reuters.com/markets/on-the-money/how-navigate-financial-shock-layoff-2025-12-09/" target="_blank" rel="noopener" style="text-decoration:none; opacity:0.55; transition:opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.55'">
-          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--white); letter-spacing:0.03em;">Reuters</span>
+          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--navy); letter-spacing:0.03em;">Reuters</span>
         </a>
         <a href="https://www.cnbc.com/2025/08/25/roth-401k-vs-roth-ira.html" target="_blank" rel="noopener" style="text-decoration:none; opacity:0.55; transition:opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.55'">
-          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--white); letter-spacing:0.03em;">CNBC</span>
+          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--navy); letter-spacing:0.03em;">CNBC</span>
         </a>
         <a href="https://www.investopedia.com/economist-advises-investing-100-in-stocks-11897552" target="_blank" rel="noopener" style="text-decoration:none; opacity:0.55; transition:opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.55'">
-          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--white); letter-spacing:0.03em;">Investopedia</span>
+          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--navy); letter-spacing:0.03em;">Investopedia</span>
         </a>
         <a href="https://www.financial-planning.com/list/the-10-books-financial-advisors-loved-in-2025" target="_blank" rel="noopener" style="text-decoration:none; opacity:0.55; transition:opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.55'">
-          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--white); letter-spacing:0.03em;">Financial Planning</span>
+          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--navy); letter-spacing:0.03em;">Financial Planning</span>
         </a>
       </div>
     </div>
@@ -756,7 +751,7 @@
     <div class="custom-talks reveal">
       <div>
         <h3>Custom Sessions</h3>
-        <p>Available on lifecycle portfolio design (drawing on research published by CFA Institute's Enterprising Investor), tax-efficient withdrawals, Social Security, and making decisions in uncertain economies.</p>
+        <p>Available on lifecycle portfolio design informed by research published in CFA Institute's Enterprising Investor, plus tax-efficient withdrawals, Social Security, and making decisions in uncertain economies.</p>
       </div>
       <a href="#contact" class="btn-primary">Inquire about speaking →</a>
     </div>
@@ -767,7 +762,7 @@
 <section class="statement">
   <div class="statement-inner reveal">
     <blockquote>Plan.<em>Don't predict.</em></blockquote>
-    <div class="attribution">The whole thesis, in three words</div>
+    <div class="attribution">Common Sense Finance, in three words</div>
   </div>
 </section>
 
