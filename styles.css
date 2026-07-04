@@ -407,9 +407,9 @@
   .newsletter-note { font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:14px; }
   .newsletter-tagline {
     font-family: var(--heading); font-style: italic;
-    font-size: 1.05rem; font-weight: 400;
-    color: var(--gold-light); opacity: 0.9;
-    margin-bottom: 18px; letter-spacing: 0.005em;
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem); font-weight: 400;
+    color: var(--gold-light); opacity: 1;
+    margin-bottom: 20px; letter-spacing: 0.005em;
   }
 
   /* ==================== CONTACT ==================== */
@@ -442,7 +442,7 @@
   /* ==================== FOOTER ==================== */
   footer { padding:52px 40px 36px; background:var(--navy-deep); border-top:1px solid rgba(181,130,63,0.3); }
   .footer-inner { max-width:1200px; margin:0 auto; }
-  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.2fr; gap:48px; margin-bottom:56px; }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; margin-bottom:56px; }
   .footer-brand h4 { font-family:var(--heading); font-size:1.1rem; font-weight:500; color:var(--white); margin-bottom:10px; }
   .footer-brand p { font-size:0.88rem; color:rgba(255,255,255,0.4); line-height:1.7; max-width:280px; }
   .footer-links h5 { font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
