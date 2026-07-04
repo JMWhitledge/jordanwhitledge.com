@@ -63,7 +63,7 @@
     display: flex; align-items: center; justify-content: space-between; height: 72px;
   }
   .nav-brand {
-    font-family: var(--heading); font-size: 1.5rem; font-weight: 400;
+    font-family: var(--heading); font-size: 1.7rem; font-weight: 400;
     letter-spacing: 0.04em; color: var(--white); text-decoration: none;
     position: relative; padding-bottom: 8px;
   }
@@ -78,10 +78,10 @@
   .utility-inner {
     max-width: 1200px; margin: 0 auto; padding: 0 40px;
     display: flex; align-items: center; justify-content: flex-end;
-    height: 34px;
+    height: 40px;
   }
   .utility-creds {
-    font-family: var(--body); font-size: 0.62rem; font-weight: 500;
+    font-family: var(--body); font-size: 0.72rem; font-weight: 500;
     color: rgba(232,213,163,0.7); letter-spacing: 0.22em; text-transform: uppercase;
   }
   .utility-creds .dot {
@@ -323,7 +323,7 @@
 
   /* ==================== SPEAKING ==================== */
   .speaking { padding: 120px 40px; background: var(--warm-gray); }
-  .talks-grid { display:flex; flex-direction:column; gap:32px; margin-top:48px; }
+  .talks-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; align-items:start; }
   .talk-card {
     background:var(--white); border-radius:4px; padding:40px 36px;
     border:1px solid rgba(27,42,74,0.06); transition:all 0.35s;
@@ -524,12 +524,12 @@
   /* RESPONSIVE */
   @media (max-width:900px) {
     .about-grid, .contact-grid, .teaching-grid { grid-template-columns:1fr; gap:40px; }
-    .offerings-grid, .posts-grid, .worksheet-grid, .calc-grid { grid-template-columns:1fr; gap:20px; }
+    .offerings-grid, .posts-grid, .worksheet-grid, .calc-grid, .talks-grid { grid-template-columns:1fr; gap:20px; }
     .lead-magnet { grid-template-columns:1fr; padding:36px 28px; }
     .lead-magnet-visual { display:none; }
     .footer-grid { grid-template-columns:1fr; gap:32px; }
     .nav-inner { padding:0 20px; }
-    .nav-brand { font-size:1.2rem; }
+    .nav-brand { font-size:1.35rem; }
     .nav-toggle { display:flex; position:absolute; right:20px; top:50%; transform:translateY(-50%); z-index:2; }
     .nav-links {
       display:flex; flex-direction:column; align-items:flex-start; gap:20px;
@@ -637,6 +637,9 @@
         <a href="https://www.financial-planning.com/list/the-10-books-financial-advisors-loved-in-2025" target="_blank" rel="noopener" style="text-decoration:none; opacity:0.55; transition:opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.55'">
           <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--navy); letter-spacing:0.03em;">Financial Planning</span>
         </a>
+        <a href="https://rpc.cfainstitute.org/blogs/enterprising-investor/2026/clients-biggest-asset-isnt-their-portfolio" target="_blank" rel="noopener" style="text-decoration:none; opacity:0.55; transition:opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.55'">
+          <span style="font-family:var(--body); font-size:1.25rem; font-weight:600; color:var(--navy); letter-spacing:0.03em;">CFA Institute</span>
+        </a>
       </div>
     </div>
   </div>
@@ -646,7 +649,7 @@
 <section class="offerings" id="how-i-think">
   <div class="container">
     <div class="section-label reveal">How I Think</div>
-    <p class="reveal" style="font-family:var(--heading); font-weight:500; font-size:clamp(1.6rem,3vw,2.3rem); line-height:1.3; color:var(--navy); max-width:760px; margin-bottom:56px;">I believe good financial decisions start with evidence and are built to hold up over a lifetime.</p>
+    <p class="reveal" style="font-family:var(--heading); font-weight:500; font-size:clamp(1.6rem,3vw,2.3rem); line-height:1.3; color:var(--navy); max-width:1000px; margin-bottom:48px;">I believe good financial decisions start with evidence and are built to hold up over a lifetime.</p>
     <div class="offerings-grid">
       <div class="offering-card reveal">
         <h3>Start with evidence.</h3>
@@ -687,23 +690,6 @@
       </div>
     </div>
 
-    <!-- IN THE MEDIA -->
-    <div style="margin-top:80px; position:relative; z-index:1;">
-      <div class="section-label reveal" style="color:var(--gold);">In the Media</div>
-      <h3 class="reveal" style="font-family:var(--heading); font-size:1.4rem; font-weight:500; color:var(--white); margin-bottom:32px;">From Recent Interviews</h3>
-
-      <!-- Quote highlight -->
-      <div class="reveal media-quote-grid">
-        <div style="border-left:2px solid var(--gold); padding-left:20px;">
-          <p style="font-family:var(--heading); font-size:1.05rem; font-style:italic; color:var(--gold-light); line-height:1.5;">"It's power versus freedom."</p>
-          <p style="font-size:0.72rem; color:var(--gold); margin-top:6px;">— CNBC, on Roth 401(k) vs. Roth IRA</p>
-        </div>
-        <div style="border-left:2px solid var(--gold); padding-left:20px;">
-          <p style="font-family:var(--heading); font-size:1.05rem; font-style:italic; color:var(--gold-light); line-height:1.5;">"I don't know that people understand the benefits of the tax-free growth."</p>
-          <p style="font-size:0.72rem; color:var(--gold); margin-top:6px;">— CNBC, on Roth 401(k) contributions</p>
-        </div>
-      </div>
-    </div>
 
   </div>
 </section>
@@ -751,6 +737,38 @@
   </div>
 </section>
 
+<!-- ===================== LEAD MAGNET ===================== -->
+<section style="background:var(--paper); padding:100px 40px 96px;">
+  <div class="container">
+    <div class="section-label reveal">Free Guide</div>
+    <h2 class="section-title reveal" style="margin-bottom:36px;">Start with the Advisor's Alpha Checklist.</h2>
+    <div class="lead-magnet reveal">
+      <div>
+        <div class="lead-magnet-badge">Featured Download</div>
+        <h3>The Advisor's Alpha Checklist</h3>
+        <p>A framework for evaluating what good financial advice should include, based on Vanguard's research. Whether you work with an advisor or manage your own money, this checklist shows where real value comes from.</p>
+        <form class="lead-magnet-form" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="Your email address" aria-label="Email">
+          <button class="btn-primary" type="submit">Download →</button>
+        </form>
+      </div>
+      <div class="lead-magnet-visual">
+        <div class="checklist-mockup">
+          <h5>The Advisor's Alpha Checklist</h5>
+          <div class="sub">Jordan M. Whitledge, CFA®, CFP®</div>
+          <div class="checklist-item"><div class="check-box checked"></div><span>Tax-loss harvesting</span></div>
+          <div class="checklist-item"><div class="check-box checked"></div><span>Asset location optimization</span></div>
+          <div class="checklist-item"><div class="check-box checked"></div><span>Behavioral coaching</span></div>
+          <div class="checklist-item"><div class="check-box"></div><span>Rebalancing discipline</span></div>
+          <div class="checklist-item"><div class="check-box"></div><span>Withdrawal sequencing</span></div>
+          <div class="checklist-item"><div class="check-box"></div><span>Total-return approach</span></div>
+          <div class="checklist-item"><div class="check-box"></div><span>Spending strategy</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== SPEAKING ===================== -->
 <section class="speaking" id="speaking">
   <div class="container">
@@ -785,14 +803,6 @@
       </div>
       <a href="#contact" class="btn-primary">Inquire about speaking →</a>
     </div>
-  </div>
-</section>
-
-<!-- ===================== STATEMENT (editorial pull-quote) ===================== -->
-<section class="statement">
-  <div class="statement-inner reveal">
-    <blockquote>Plan.<em>Don't predict.</em></blockquote>
-    <div class="attribution">Common Sense Finance, in three words</div>
   </div>
 </section>
 
@@ -833,40 +843,13 @@
     <div class="resources-header">
       <div>
         <div class="section-label reveal">Resources</div>
-        <h2 class="section-title reveal">Start with the Advisor's Alpha Checklist.</h2>
+        <h2 class="section-title reveal">Free tools and reading.</h2>
       </div>
     </div>
 
-    <!-- Lead Magnet -->
-    <div class="lead-magnet reveal">
-      <div>
-        <div class="lead-magnet-badge">Featured Download</div>
-        <h3>The Advisor's Alpha Checklist</h3>
-        <p>A framework for evaluating what good financial advice should include, based on Vanguard's research. Whether you work with an advisor or manage your own money, this checklist shows where real value comes from.</p>
-        <form class="lead-magnet-form" onsubmit="event.preventDefault();">
-          <input type="email" placeholder="Your email address" aria-label="Email">
-          <button class="btn-primary" type="submit">Download →</button>
-        </form>
-      </div>
-      <div class="lead-magnet-visual">
-        <div class="checklist-mockup">
-          <h5>The Advisor's Alpha Checklist</h5>
-          <div class="sub">Jordan M. Whitledge, CFA®, CFP®</div>
-          <div class="checklist-item"><div class="check-box checked"></div><span>Tax-loss harvesting</span></div>
-          <div class="checklist-item"><div class="check-box checked"></div><span>Asset location optimization</span></div>
-          <div class="checklist-item"><div class="check-box checked"></div><span>Behavioral coaching</span></div>
-          <div class="checklist-item"><div class="check-box"></div><span>Rebalancing discipline</span></div>
-          <div class="checklist-item"><div class="check-box"></div><span>Withdrawal sequencing</span></div>
-          <div class="checklist-item"><div class="check-box"></div><span>Total-return approach</span></div>
-          <div class="checklist-item"><div class="check-box"></div><span>Spending strategy</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Free Tools & Worksheets -->
-    <div style="margin-top:72px;">
-      <div class="section-label reveal">Free Tools</div>
-      <h3 class="section-title reveal" style="font-size:clamp(1.6rem,2.6vw,2.1rem);">Worksheets to get you organized.</h3>
+    <!-- Worksheets -->
+    <div>
+      <h3 class="section-title reveal" style="font-size:clamp(1.6rem,2.6vw,2.1rem); margin-top:8px;">Worksheets to get you organized.</h3>
       <p class="section-subtitle reveal" style="margin-bottom:40px;">Simple, no-jargon worksheets for the fundamentals. Free to download.</p>
       <!-- TODO: point each "Get it →" link to its gated PDF once the file + email provider are wired -->
       <div class="worksheet-grid">
