@@ -381,7 +381,7 @@
   }
 
   /* ==================== NEWSLETTER ==================== */
-  .newsletter { padding:80px 40px; background:var(--navy-deep); position:relative; }
+  .newsletter { padding:64px 40px; background:var(--navy-deep); position:relative; }
   .newsletter::before {
     content:''; position:absolute; inset:0;
     background:radial-gradient(ellipse at 50% 50%, rgba(181,130,63,0.04) 0%, transparent 50%);
@@ -440,7 +440,7 @@
   .credential:first-child::before { display:none; }
 
   /* ==================== FOOTER ==================== */
-  footer { padding:80px 40px 40px; background:var(--navy-deep); }
+  footer { padding:52px 40px 36px; background:var(--navy-deep); border-top:1px solid rgba(181,130,63,0.3); }
   .footer-inner { max-width:1200px; margin:0 auto; }
   .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.2fr; gap:48px; margin-bottom:56px; }
   .footer-brand h4 { font-family:var(--heading); font-size:1.1rem; font-weight:500; color:var(--white); margin-bottom:10px; }
