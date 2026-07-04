@@ -299,6 +299,27 @@
   /* The Essayist voice — the Brief reads in Newsreader (headline + body) */
   #writing .section-title, #writing .post-card h3 { font-family: var(--essay); font-weight:500; }
   #writing .section-subtitle, #writing .post-excerpt { font-family: var(--essay); }
+  /* Featured published article */
+  .featured-article {
+    display:block; text-decoration:none; background:var(--white);
+    border:1px solid var(--warm-gray-2); border-top:3px solid var(--gold);
+    border-radius:4px; padding:36px 40px; margin-bottom:52px; transition:all 0.35s;
+  }
+  .featured-article:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(27,42,74,0.10); }
+  .featured-tag {
+    font-family:var(--body); font-size:0.7rem; font-weight:600; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold-hover); margin-bottom:14px;
+  }
+  .featured-article h3 {
+    font-family:var(--essay); font-size:clamp(1.5rem,2.6vw,2rem); font-weight:500;
+    color:var(--navy); line-height:1.25; margin-bottom:14px;
+  }
+  .featured-article p { font-family:var(--essay); font-size:1.02rem; color:var(--slate); line-height:1.7; margin-bottom:18px; max-width:680px; }
+  .featured-meta { font-family:var(--body); font-size:0.85rem; font-weight:600; color:var(--gold-hover); }
+  .brief-teaser-label {
+    font-family:var(--body); font-size:0.72rem; font-weight:500; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--slate); margin-bottom:20px;
+  }
 
   /* ==================== SPEAKING ==================== */
   .speaking { padding: 120px 40px; background: var(--warm-gray); }
@@ -692,12 +713,21 @@
   <div class="container">
     <div class="writing-header">
       <div>
-        <div class="section-label reveal">The Whitledge Brief</div>
-        <h2 class="section-title reveal">Essays are on the way.</h2>
+        <div class="section-label reveal">Writing</div>
+        <h2 class="section-title reveal">Published, and more on the way.</h2>
       </div>
       <a href="#newsletter" class="view-all reveal">Subscribe to The Brief →</a>
     </div>
-    <p class="section-subtitle reveal" style="margin-bottom:52px;">The first issues of The Whitledge Brief are being written now: clear, no-nonsense essays on investing, planning, and behavioral finance. Subscribe and you'll get them the day they publish.</p>
+    <p class="section-subtitle reveal" style="margin-bottom:44px;">My latest for CFA Institute's Enterprising Investor, plus The Whitledge Brief, my forthcoming newsletter on investing, planning, and behavioral finance.</p>
+
+    <a href="https://rpc.cfainstitute.org/blogs/enterprising-investor/2026/clients-biggest-asset-isnt-their-portfolio" target="_blank" rel="noopener" class="featured-article reveal">
+      <div class="featured-tag">Published · CFA Institute Enterprising Investor</div>
+      <h3>Your Client's Biggest Asset Isn't in Their Portfolio</h3>
+      <p>A practical lifecycle-finance framework that treats human capital, a client's future earnings, as a core input to portfolio allocation, not age alone. Building on the work of Robert Merton.</p>
+      <div class="featured-meta">July 2026 · Read on Enterprising Investor →</div>
+    </a>
+
+    <div class="brief-teaser-label reveal">From The Whitledge Brief, coming soon</div>
     <div class="posts-grid">
       <article class="post-card reveal">
         <div class="post-category">Behavioral Finance</div>
@@ -751,7 +781,7 @@
     <div class="custom-talks reveal">
       <div>
         <h3>Custom Sessions</h3>
-        <p>Available on lifecycle portfolio design informed by research published in CFA Institute's Enterprising Investor, plus tax-efficient withdrawals, Social Security, and making decisions in uncertain economies.</p>
+        <p>Available on lifecycle portfolio design, informed by my research in <a href="https://rpc.cfainstitute.org/blogs/enterprising-investor/2026/clients-biggest-asset-isnt-their-portfolio" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:underline;">CFA Institute's Enterprising Investor</a>, plus tax-efficient withdrawals, Social Security, and making decisions in uncertain economies.</p>
       </div>
       <a href="#contact" class="btn-primary">Inquire about speaking →</a>
     </div>
