@@ -171,6 +171,56 @@
     <p class="newsletter-note reveal">Unsubscribe anytime.</p>
   </div>
 </section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label reveal">Contact</div>
+        <h2 class="section-title reveal">Get in Touch</h2>
+        <p class="section-subtitle reveal">For speaking engagements, media inquiries, educational partnerships, or professional questions. I'd enjoy hearing from you.</p>
+        <div style="margin-top:32px" class="reveal">
+          <p style="font-size:0.9rem; color:var(--slate); margin-bottom:8px;">Email: <a href="mailto:jordan.whitledge@icloud.com" style="color:var(--gold-hover); text-decoration:none;">jordan.whitledge@icloud.com</a></p>
+          <p style="font-size:0.9rem; color:var(--slate);">LinkedIn: <a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener" style="color:var(--gold-hover); text-decoration:none;">linkedin.com/in/jordanwhitledge</a></p>
+        </div>
+      </div>
+      <!--
+        TO ACTIVATE: create a free Formspree form (formspree.io), then
+        1) replace YOUR_FORM_ID below with your form ID, and
+        2) delete the onsubmit="event.preventDefault();" attribute.
+        Field name attributes are already set, so no other changes are needed.
+      -->
+      <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" type="email" name="email" placeholder="Your email" required>
+        </div>
+        <div class="form-group">
+          <label for="cf-subject">Subject</label>
+          <select id="cf-subject" name="subject">
+            <option value="">Select a topic...</option>
+            <option>Speaking Inquiry</option>
+            <option>Media Request</option>
+            <option>Educational Partnership</option>
+            <option>Professional Inquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" placeholder="How can I help?" required></textarea>
+        </div>
+        <button class="btn-primary" type="submit" style="align-self:flex-start;">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">

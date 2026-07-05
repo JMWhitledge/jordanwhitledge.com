@@ -314,6 +314,11 @@
   .talk-number { font-family:var(--body); font-size:0.68rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
   .talk-card h3 { font-family:var(--heading); font-size:1.35rem; font-weight:600; color:var(--navy); margin-bottom:14px; line-height:1.35; }
   .talk-card > p { font-size:0.95rem; color:var(--slate); line-height:1.75; margin-bottom:20px; }
+  .talk-takeaways { margin-top:18px; }
+  .talk-takeaways h5 { font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--navy); margin-bottom:12px; }
+  .takeaway-item { display:flex; gap:10px; align-items:flex-start; margin-bottom:8px; }
+  .takeaway-dot { width:6px; height:6px; background:var(--gold); border-radius:50%; flex-shrink:0; margin-top:8px; }
+  .takeaway-item span { font-size:0.85rem; color:var(--charcoal); line-height:1.55; }
 
   .custom-talks {
     background:var(--navy); border-radius:4px; padding:40px; margin-top:40px;
