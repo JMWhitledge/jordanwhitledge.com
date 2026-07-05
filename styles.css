@@ -442,7 +442,7 @@
   /* ==================== FOOTER ==================== */
   footer { padding:52px 40px 36px; background:var(--navy-deep); border-top:1px solid rgba(181,130,63,0.3); }
   .footer-inner { max-width:1200px; margin:0 auto; }
-  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; margin-bottom:56px; }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:44px; margin-bottom:40px; }
   .footer-brand h4 { font-family:var(--heading); font-size:1.1rem; font-weight:500; color:var(--white); margin-bottom:10px; }
   .footer-brand p { font-size:0.88rem; color:rgba(255,255,255,0.4); line-height:1.7; max-width:280px; }
   .footer-links h5 { font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
@@ -509,7 +509,8 @@
     .offerings-grid, .posts-grid, .worksheet-grid, .calc-grid, .talks-grid { grid-template-columns:1fr; gap:20px; }
     .lead-magnet { grid-template-columns:1fr; padding:36px 28px; }
     .lead-magnet-visual { display:none; }
-    .footer-grid { grid-template-columns:1fr; gap:32px; }
+    .footer-grid { grid-template-columns:1fr 1fr; gap:28px 24px; }
+    .footer-brand { grid-column:1 / -1; }
     .nav-inner { padding:0 20px; }
     .nav-brand { font-size:1.35rem; }
     .nav-toggle { display:flex; position:absolute; right:20px; top:50%; transform:translateY(-50%); z-index:2; }
@@ -523,8 +524,7 @@
     .nav-links.open { transform:translateY(0); opacity:1; pointer-events:auto; }
     .writing-header, .resources-header { flex-direction:column; align-items:flex-start; gap:12px; }
     .newsletter-form, .lead-magnet-form { flex-direction:column; }
-    .credentials-inner { flex-direction:column; gap:12px; }
-    .credential::before { display:none; }
+    .credentials-inner { flex-wrap:wrap; gap:12px 26px; }
     .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
     .custom-talks { flex-direction:column; text-align:center; }
     .hero-buttons { flex-direction:column; }
