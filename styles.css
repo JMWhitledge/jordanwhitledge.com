@@ -34,12 +34,12 @@
   /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 1000;
-    background: rgba(27, 42, 74, 0.97);
+    background: rgba(17, 29, 51, 0.98);
     backdrop-filter: blur(12px);
     border-bottom: 2px solid rgba(181, 130, 63, 0.45);
     transition: all 0.4s ease;
   }
-  nav.scrolled { background: rgba(17, 29, 51, 0.99); box-shadow: 0 4px 30px rgba(0,0,0,0.2); }
+  nav.scrolled { background: rgba(17, 29, 51, 0.99); box-shadow: 0 6px 28px rgba(0,0,0,0.28); }
   .nav-inner {
     max-width: 1200px; margin: 0 auto; padding: 0 40px;
     display: flex; align-items: center; justify-content: space-between; height: 72px;
@@ -51,7 +51,7 @@
   }
   .nav-brand::after {
     content: ''; position: absolute; bottom: 0; left: 0;
-    width: 36px; height: 1px; background: var(--gold);
+    width: 48px; height: 2px; background: var(--gold);
   }
   .utility-bar {
     background: transparent;
@@ -150,7 +150,7 @@
     content:''; position:absolute; right:-80px; top:50%; transform:translateY(-50%);
     width:500px; height:500px; border:1px solid rgba(181,130,63,0.08); border-radius:50%; pointer-events:none;
   }
-  .hero-inner { max-width:1200px; margin:0 auto; padding:116px 40px 72px; position:relative; z-index:1; }
+  .hero-inner { max-width:1200px; margin:0 auto; padding:150px 40px 76px; position:relative; z-index:1; }
   .hero-eyebrow {
     font-family:var(--body); font-size:0.8rem; font-weight:500; letter-spacing:0.2em;
     text-transform:uppercase; color:var(--gold); margin-bottom:32px;
@@ -538,7 +538,7 @@
   /* MOBILE — tighter gutters + vertical rhythm, and collapse the inline grids */
   @media (max-width: 768px) {
     .container { padding-left:0; padding-right:0; }
-    .hero-inner { padding:100px 24px 56px; }
+    .hero-inner { padding:124px 24px 60px; }
     .offerings, .writing, .speaking, .teaching, .about, .contact, .resources {
       padding-top:56px; padding-bottom:56px; padding-left:24px; padding-right:24px;
     }
