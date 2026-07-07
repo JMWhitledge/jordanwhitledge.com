@@ -567,3 +567,16 @@
 
   body.subpage { padding-top: 113px; }
   @media (max-width:768px){ body.subpage { padding-top: 72px; } }
+
+
+/* ===== As Featured In — press logo row ===== */
+.press-row { display:flex; align-items:center; justify-content:center; gap:26px 46px; flex-wrap:wrap; }
+.press-logo { text-decoration:none; opacity:0.46; transition:opacity 0.25s ease; display:inline-flex; align-items:center; }
+.press-logo:hover { opacity:0.82; }
+.press-logo img { display:block; filter:brightness(0) saturate(0); }
+.press-wordmark { font-family:var(--body); font-size:1.1rem; font-weight:600; color:#000; letter-spacing:0.02em; white-space:nowrap; line-height:1; }
+@media (max-width:600px){
+  .press-row { gap:18px 28px; }
+  .press-logo img { height:18px !important; }
+  .press-wordmark { font-size:0.98rem; }
+}
