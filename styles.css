@@ -616,3 +616,9 @@
 #newsletter .formkit-powered-by-convertkit { font-family:var(--body); font-size:0.66rem; letter-spacing:0.04em; color:rgba(255,255,255,0.28); text-decoration:none; }
 #newsletter .formkit-powered-by-convertkit:hover { color:rgba(255,255,255,0.5); }
 @media (max-width:600px){ #newsletter .formkit-fields { flex-direction:column; } }
+
+
+/* ===== Speaking page — credibility line ===== */
+.speaking-proof { margin:16px 0 6px; font-family:var(--body); font-size:0.9rem; color:var(--slate); line-height:1.6; }
+.speaking-proof span { color:var(--gold); margin:0 7px; }
+.speaking-proof em { font-style:italic; }
