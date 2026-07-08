@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  THE BRIEF — ARTICLE TEMPLATE.  How to publish a new piece:
+  1. COPY this file to  the-brief/<slug>.html
+     (slug = lowercase-words-with-dashes, e.g. plan-beats-portfolio.html)
+     It will be live at  /the-brief/<slug>
+  2. Find every  [[ ... ]]  marker below and replace it.
+     There are only 6: TITLE, DESCRIPTION, SLUG, DATE (2x places),
+     CATEGORY, READ TIME — plus your article body.
+  3. Delete  <meta name="robots" content="noindex">  so Google indexes it
+     (it's noindex here so the blank template never gets crawled).
+  4. Write the article between the  BODY START  and  BODY END  markers
+     below. Use paragraphs, h2/h3 subheads, blockquote, lists, strong, links.
+  5. Link it from the-brief.html so people can find it (see note at bottom).
+  Send Jordan/Claude the draft and this becomes a ~10-minute drop-in.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex"><!-- DELETE this line when publishing -->
+<title>[[ARTICLE TITLE]] | The Whitledge Brief</title>
+<meta name="description" content="[[ONE-SENTENCE SUMMARY — ~150 characters, used in Google results.]]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[[ARTICLE TITLE]] | The Whitledge Brief">
+<meta property="og:description" content="[[ONE-SENTENCE SUMMARY]]">
+<meta property="og:url" content="https://www.jordanwhitledge.com/the-brief/[[SLUG]]">
+<meta property="og:image" content="https://www.jordanwhitledge.com/headshot.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23B5823F' text-anchor='middle'%3EJW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add('js');</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[[ARTICLE TITLE]]",
+  "description": "[[ONE-SENTENCE SUMMARY]]",
+  "datePublished": "[[YYYY-MM-DD]]",
+  "dateModified": "[[YYYY-MM-DD]]",
+  "author": { "@type": "Person", "name": "Jordan M. Whitledge", "url": "https://www.jordanwhitledge.com" },
+  "publisher": { "@type": "Person", "name": "Jordan M. Whitledge" },
+  "mainEntityOfPage": "https://www.jordanwhitledge.com/the-brief/[[SLUG]]"
+}
+</script>
+</head>
+<body class="subpage">
+<!-- NAV (shared — do not edit; note the ../ on the home link is not needed, root paths work) -->
+<nav id="navbar">
+  <div class="utility-bar">
+    <div class="utility-inner">
+      <div class="utility-creds">CFA<sup>&reg;</sup> <span class="dot">&middot;</span> CFP<sup>&reg;</sup> <span class="dot">&middot;</span> MBA <span class="dot">&middot;</span> Adjunct Professor of Economics</div>
+    </div>
+  </div>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Jordan M. Whitledge</a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/the-brief">The Brief</a></li>
+      <li><a href="/speaking">Speaking</a></li>
+      <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== ARTICLE ===================== -->
+<article class="article">
+  <div class="article-eyebrow">[[CATEGORY — e.g. Behavioral Finance]]</div>
+  <h1>[[Article title goes here, and can run to two lines]]</h1>
+  <p class="article-standfirst">[[Optional one-sentence hook that sits under the title. Delete this line if you don't want one.]]</p>
+  <div class="article-meta">By Jordan M. Whitledge <span class="sep">&middot;</span> [[Month D, YYYY]] <span class="sep">&middot;</span> [[X]] min read</div>
+  <div class="article-rule"></div>
+
+  <div class="article-body">
+    <!-- BODY START — replace everything between here and BODY END with your article -->
+    <p>Open with your strongest, plainest sentence. The first paragraph gets a drop cap automatically, so make it count. Keep paragraphs short and let one idea breathe before moving to the next.</p>
+
+    <p>Write the way you teach: evidence first, jargon last. Where a claim leans on research, name it &mdash; readers trust a writer who shows the receipts. You can link out like <a href="https://www.jordanwhitledge.com">this</a> when it helps.</p>
+
+    <h2>Use subheads to give the piece a spine</h2>
+    <p>A subhead every few hundred words keeps a reader oriented and makes the article skimmable. Use <strong>bold</strong> sparingly, for the one phrase in a paragraph that carries the point.</p>
+
+    <blockquote>Pull a single sentence you want to land into a blockquote. Used once, it gives the essay a beat. Used five times, it&rsquo;s noise.</blockquote>
+
+    <p>Lists work when the items are genuinely parallel:</p>
+    <ul>
+      <li>One clear idea per line.</li>
+      <li>Keep them short &mdash; a list is a summary, not a paragraph in disguise.</li>
+      <li>Three to five items reads best.</li>
+    </ul>
+
+    <hr>
+
+    <p>Close by returning to the opening idea and giving the reader one thing to take with them. End on a sentence, not a shrug.</p>
+    <!-- BODY END -->
+  </div>
+
+  <p class="article-disclaimer">This article is for educational purposes only and reflects Jordan M. Whitledge&rsquo;s personal views. It is not personalized financial, investment, tax, or legal advice, and reading it does not create an advisory relationship.</p>
+
+  <div class="article-foot">
+    <a href="/the-brief" class="article-back">&larr; All writing</a>
+    <a href="/#newsletter" class="btn-primary">Subscribe to The Brief &rarr;</a>
+  </div>
+</article>
+
+<!-- FOOTER (shared) -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Jordan M. Whitledge</h4>
+        <p>Evidence-based writing, speaking, and teaching on the principles that build lasting wealth.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Pages</h5>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/the-brief">The Brief</a></li>
+          <li><a href="/speaking">Speaking</a></li>
+          <li><a href="/teaching">Teaching</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:0.72rem; color:rgba(255,255,255,0.28); line-height:1.6; max-width:880px; margin-bottom:16px;">The content on this site is for educational purposes only and reflects Jordan M. Whitledge's personal views. It does not constitute personalized financial, investment, tax, or legal advice. Subscribing to The Whitledge Brief or contacting Jordan does not create an advisory relationship.</p>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Jordan M. Whitledge. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/disclaimers">Disclaimers</a></p>
+      <p><a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+<!--
+  ============================================================
+  LINK IT FROM THE BRIEF: in the-brief.html, the three "themes it will
+  explore" cards can become real links. Turn a card like:
+      <article class="post-card reveal">...</article>
+  into a clickable one:
+      <a href="/the-brief/your-slug" class="post-card reveal" style="text-decoration:none;">...</a>
+  and change its "Coming soon"-era copy to the real title + a real date.
+  ============================================================
+-->
+</body>
+</html>
