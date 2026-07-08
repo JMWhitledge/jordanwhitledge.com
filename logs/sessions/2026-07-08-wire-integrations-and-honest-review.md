@@ -29,7 +29,8 @@
 - [ ] Jordan: **enable Vercel Web Analytics** in the dashboard (script dormant until then).
 - [ ] Jordan: **write first Brief article(s)** → drop into template (or send draft to Claude).
 - [ ] Jordan: create **Advisor's Alpha Checklist PDF** + a **second Kit form** (incentive email) → then wire the Resources lead-magnet + auto-delivery.
-- [ ] Fix the dead **"Download →" button** on /resources (soften to "coming soon / notify me") — offered, not yet done.
+- [x] ~~Fix the dead "Download →" button on /resources~~ — done: now an honest "Coming Soon" box routing to the newsletter.
+- [ ] Build a **Kit welcome sequence** for new subscribers (Sequence + Visual Automation on form 9657065): welcome → signature idea (day 3) → reading list/reply-invite (day 7). Claude can draft the 3 emails.
 - [ ] Jordan: provide **CFA Institute + Financial Planning logo files** → finish press bar.
 - [ ] Jordan: add **2–4 real speaking engagements** to the scaffold in speaking.html.
 - [ ] Jordan: brand the **Kit double-opt-in confirmation email**.
