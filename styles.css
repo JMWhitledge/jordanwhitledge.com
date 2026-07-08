@@ -622,3 +622,10 @@
 .speaking-proof { margin:16px 0 6px; font-family:var(--body); font-size:0.9rem; color:var(--slate); line-height:1.6; }
 .speaking-proof span { color:var(--gold); margin:0 7px; }
 .speaking-proof em { font-style:italic; }
+
+
+/* ===== Contact form status message ===== */
+.form-status { font-family:var(--body); font-size:0.9rem; line-height:1.5; margin:2px 0 2px; }
+.form-status:empty { display:none; }
+.form-status.success { color:#2f7d5b; font-weight:500; }
+.form-status.error { color:#b23a2e; }

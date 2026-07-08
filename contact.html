@@ -86,13 +86,9 @@
           <p style="font-size:0.9rem; color:var(--slate);">LinkedIn: <a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener" style="color:var(--gold-hover); text-decoration:none;">linkedin.com/in/jordanwhitledge</a></p>
         </div>
       </div>
-      <!--
-        TO ACTIVATE: create a free Formspree form (formspree.io), then
-        1) replace YOUR_FORM_ID below with your form ID, and
-        2) delete the onsubmit="event.preventDefault();" attribute.
-        Field name attributes are already set, so no other changes are needed.
-      -->
-      <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="event.preventDefault();">
+      <form class="contact-form reveal" action="https://formspree.io/f/xaqgzbaz" method="POST">
+        <input type="hidden" name="_subject" value="New message via jordanwhitledge.com">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-group">
           <label for="cf-name">Name</label>
           <input id="cf-name" type="text" name="name" placeholder="Your name" required>
@@ -116,6 +112,7 @@
           <label for="cf-message">Message</label>
           <textarea id="cf-message" name="message" placeholder="How can I help?" required></textarea>
         </div>
+        <p class="form-status" role="status" aria-live="polite"></p>
         <button class="btn-primary" type="submit" style="align-self:flex-start;">Send Message →</button>
       </form>
     </div>
@@ -200,6 +197,28 @@
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
+    });
+  });
+
+  // Contact form (Formspree) — AJAX submit with inline status
+  document.querySelectorAll('.contact-form').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var status = f.querySelector('.form-status');
+      if (status){ status.textContent = 'Sending\u2026'; status.className = 'form-status'; }
+      fetch(f.action, { method:'POST', body:new FormData(f), headers:{'Accept':'application/json'} })
+        .then(function(res){
+          if (res.ok){
+            f.reset();
+            if (status){ status.textContent = "Thanks \u2014 your message has been sent. I'll be in touch soon."; status.className = 'form-status success'; }
+          } else {
+            return res.json().then(function(d){
+              var msg = (d && d.errors) ? d.errors.map(function(x){return x.message;}).join(', ') : 'Something went wrong. Please try again.';
+              if (status){ status.textContent = msg; status.className = 'form-status error'; }
+            });
+          }
+        })
+        .catch(function(){ if (status){ status.textContent = 'Network error. Please try again, or reach out via LinkedIn.'; status.className = 'form-status error'; } });
     });
   });
 </script>
