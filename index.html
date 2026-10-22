@@ -68,7 +68,7 @@
       <li><a href="/teaching">Teaching</a></li>
       <li><a href="/resources">Resources</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      <li><a href="/subscribe" class="nav-cta">Subscribe</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -82,7 +82,7 @@
     <h1>Common Sense Finance.<br><em>Uncommon Wealth.</em></h1>
     <p class="hero-subtitle">I'm Jordan M. Whitledge, CFA® charterholder and CFP® professional. I advise families on their biggest financial decisions, and I teach economics and retirement planning at the university level. The practice keeps the teaching real. The teaching keeps the advice clear.</p>
     <div class="hero-buttons">
-      <a href="/#newsletter" class="btn-primary">Subscribe to The Brief →</a>
+      <a href="/subscribe" class="btn-primary">Subscribe to The Brief →</a>
       <a href="/the-brief" class="btn-secondary">Read the latest →</a>
     </div>
   </div>
@@ -115,7 +115,7 @@
         <p>The Whitledge Brief, plus my latest in CFA Institute's Enterprising Investor.</p>
         <span class="card-link">Read the writing →</span>
       </a>
-      <a href="/#newsletter" class="offering-card reveal" style="text-decoration:none; background:var(--white);">
+      <a href="/subscribe" class="offering-card reveal" style="text-decoration:none; background:var(--white);">
         <div class="offering-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
         <h3>Get the free checklist</h3>
         <p>The Advisor's Alpha Checklist: where good financial advice actually adds value.</p>
@@ -188,61 +188,27 @@
     <div class="section-label reveal" style="color:var(--gold);">Newsletter</div>
     <h2 class="reveal">The Whitledge Brief.<br>One email per month.</h2>
     <p class="reveal">Evidence-based ideas on investing, planning, and making better financial decisions. Short. Substantive. No hype.</p>
-    <form action="https://app.kit.com/forms/9657065/subscriptions" class="seva-form formkit-form reveal" method="post" data-sv-form="9657065" data-uid="37705c2d1f" data-format="inline" data-version="5" data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"recaptcha":{"enabled":false}},"version":"5"}'>
+    <form action="https://app.kit.com/forms/9657065/subscriptions" class="seva-form formkit-form reveal" method="post" data-sv-form="9657065" data-uid="37705c2d1f" data-format="inline" data-version="5" data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"You\u2019re subscribed. The next issue of The Whitledge Brief will arrive in your inbox.","redirect_url":""},"recaptcha":{"enabled":false}},"version":"5"}'>
       <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-      <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-        <div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Email address" placeholder="Your email address" required type="email"></div>
-        <button data-element="submit" class="formkit-submit"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Subscribe</span></button>
+      <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
+        <div class="formkit-field"><label class="kit-label" for="home-name">First name</label><input class="formkit-input" id="home-name" name="fields[first_name]" autocomplete="given-name" placeholder="First name" required type="text"></div>
+        <div class="formkit-field"><label class="kit-label" for="home-email">Email</label><input class="formkit-input" id="home-email" name="email_address" autocomplete="email" placeholder="you@example.com" required type="email"></div>
+        <button data-element="submit" class="formkit-submit"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Subscribe to The Brief</span></button>
       </div>
       <div class="formkit-powered-by-convertkit-container"><a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" target="_blank" rel="nofollow noopener">Built with Kit</a></div>
     </form>
-    <p class="newsletter-note reveal">Unsubscribe anytime.</p>
+    <p class="newsletter-note reveal">One email a month. Unsubscribe anytime.</p>
   </div>
 </section>
 
 <!-- ===================== CONTACT ===================== -->
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div>
-        <div class="section-label reveal">Contact</div>
-        <h2 class="section-title reveal">Get in Touch</h2>
-        <p class="section-subtitle reveal">For speaking engagements, media inquiries, educational partnerships, or professional questions.</p>
-        <p class="reveal" style="font-size:0.98rem; color:var(--slate); margin-top:14px; max-width:34em;">However you found your way here, through a talk, an article, or a search, I'd be glad to hear from you.</p>
-        <div style="margin-top:32px" class="reveal">
-          <p style="font-size:0.9rem; color:var(--slate);">LinkedIn: <a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener" style="color:var(--gold-hover); text-decoration:none;">linkedin.com/in/jordanwhitledge</a></p>
-        </div>
-      </div>
-      <form class="contact-form reveal" action="https://formspree.io/f/xaqgzbaz" method="POST">
-        <input type="hidden" name="_subject" value="New message via jordanwhitledge.com">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-group">
-          <label for="cf-name">Name</label>
-          <input id="cf-name" type="text" name="name" placeholder="Your name" required>
-        </div>
-        <div class="form-group">
-          <label for="cf-email">Email</label>
-          <input id="cf-email" type="email" name="email" placeholder="Your email" required>
-        </div>
-        <div class="form-group">
-          <label for="cf-subject">Subject</label>
-          <select id="cf-subject" name="subject">
-            <option value="">Select a topic...</option>
-            <option>Speaking Inquiry</option>
-            <option>Media Request</option>
-            <option>Educational Partnership</option>
-            <option>Professional Inquiry</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" placeholder="How can I help?" required></textarea>
-        </div>
-        <p class="form-status" role="status" aria-live="polite"></p>
-        <button class="btn-primary" type="submit" style="align-self:flex-start;">Send Message →</button>
-      </form>
+<section class="contact contact-strip" id="contact">
+  <div class="container contact-strip-inner reveal">
+    <div>
+      <div class="section-label">Contact</div>
+      <p class="contact-strip-text">Speaking, media, or another question? I&rsquo;d be glad to hear from you.</p>
     </div>
+    <a href="/contact" class="btn-primary">Send me a message &rarr;</a>
   </div>
 </section>
 
@@ -269,7 +235,7 @@
         <h5>Connect</h5>
         <ul>
           <li><a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="/#newsletter">Newsletter</a></li>
+          <li><a href="/subscribe">Newsletter</a></li>
         </ul>
       </div>
     </div>

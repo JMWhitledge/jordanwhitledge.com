@@ -68,7 +68,7 @@
       <li><a href="/teaching">Teaching</a></li>
       <li><a href="/resources">Resources</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      <li><a href="/subscribe" class="nav-cta">Subscribe</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -81,11 +81,11 @@
     <div class="contact-grid">
       <div>
         <div class="section-label reveal">Contact</div>
-        <h2 class="section-title reveal">Get in Touch</h2>
-        <p class="section-subtitle reveal">For speaking engagements, media inquiries, educational partnerships, or professional questions.</p>
-        <p class="reveal" style="font-size:0.98rem; color:var(--slate); margin-top:14px; max-width:34em;">However you found your way here, through a talk, an article, or a search, I'd be glad to hear from you.</p>
-        <div style="margin-top:32px" class="reveal">
-          <p style="font-size:0.9rem; color:var(--slate);">LinkedIn: <a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener" style="color:var(--gold-hover); text-decoration:none;">linkedin.com/in/jordanwhitledge</a></p>
+        <h1 class="section-title reveal">Get in Touch</h1>
+        <p class="section-subtitle reveal">Speaking, media, educational partnerships, or another question. Send a note and I&rsquo;ll reply personally.</p>
+        <div class="contact-aside reveal">
+          <p>Looking for The Whitledge Brief? <a href="/subscribe">Subscribe here &rarr;</a></p>
+          <p>Also on <a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener">LinkedIn</a>.</p>
         </div>
       </div>
       <form class="contact-form reveal" action="https://formspree.io/f/xaqgzbaz" method="POST">
@@ -93,16 +93,16 @@
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-group">
           <label for="cf-name">Name</label>
-          <input id="cf-name" type="text" name="name" placeholder="Your name" required>
+          <input id="cf-name" type="text" name="name" placeholder="Your name" autocomplete="name" required>
         </div>
         <div class="form-group">
           <label for="cf-email">Email</label>
-          <input id="cf-email" type="email" name="email" placeholder="Your email" required>
+          <input id="cf-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
         </div>
         <div class="form-group">
-          <label for="cf-subject">Subject</label>
+          <label for="cf-subject">Topic <span style="text-transform:none; letter-spacing:0; font-weight:400; color:var(--slate);">(optional)</span></label>
           <select id="cf-subject" name="subject">
-            <option value="">Select a topic...</option>
+            <option value="">Choose one</option>
             <option>Speaking Inquiry</option>
             <option>Media Request</option>
             <option>Educational Partnership</option>
@@ -115,7 +115,7 @@
           <textarea id="cf-message" name="message" placeholder="How can I help?" required></textarea>
         </div>
         <p class="form-status" role="status" aria-live="polite"></p>
-        <button class="btn-primary" type="submit" style="align-self:flex-start;">Send Message →</button>
+        <button class="btn-primary" type="submit" style="align-self:flex-start;">Send message &rarr;</button>
       </form>
     </div>
   </div>
@@ -143,7 +143,7 @@
         <h5>Connect</h5>
         <ul>
           <li><a href="https://www.linkedin.com/in/jordanwhitledge/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="/#newsletter">Newsletter</a></li>
+          <li><a href="/subscribe">Newsletter</a></li>
         </ul>
       </div>
     </div>
