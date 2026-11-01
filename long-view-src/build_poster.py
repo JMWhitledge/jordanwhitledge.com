@@ -14,9 +14,9 @@ sub("h = f.narrow ? 400 : 580", "h = window.LV_H || 640")
 sub("var gap = f.narrow ? 35 : 36;", "var gap = window.LV_GAP || 36;")
 sub("f = frame(), h = 150;", "f = frame(), h = 138;")
 sub("f = frame(), h = 170;", "f = frame(), h = 156;")
-sub("h = f.narrow ? 300 : 340;", "h = 286;")
+sub("h = f.narrow ? 360 : 460;", "h = 500;")
 sub("    f.r = f.narrow ? 12 : 20;\n", "")
-sub("var w = wrap.clientWidth, h = 300, top = 18, bot = h - 40", "var w = wrap.clientWidth, h = 336, top = 18, bot = h - 58")
+sub("var w = wrap.clientWidth, h = 300, top = 18, bot = h - 40", "var w = wrap.clientWidth, h = 440, top = 18, bot = h - 58")
 sub("md = median(a);", "md = a.reduce(function (t, v) { return t + v; }, 0) / a.length;")
 sub("""el('text', { x: cx, y: h - 8, 'text-anchor': 'middle', class: 'ink', style: 'font-size:11.5px' }, svg, pct(up, 0));""",
     """el('text', { x: cx, y: h - 26, 'text-anchor': 'middle', class: 'ink', style: 'font-size:12.5px' }, svg, pct(md));
@@ -36,7 +36,7 @@ sub("      if (e.right) {", """      if (e.below) {
       }
       if (e.right) {""")
 sub("el('line', { x1: f.l, x2: f.w - f.r, y1: y(0), y2: y(0), stroke: 'var(--slate)' }, svg);\n  }\n\n  function rolling", """el('line', { x1: f.l, x2: f.w - f.r, y1: y(0), y2: y(0), stroke: 'var(--slate)' }, svg);
-    var lx = f.w - f.r + 16, rx = f.w - 2, mx = lx + 88, ty = 34;
+    var lx = f.w - f.r + 16, rx = f.w - 2, mx = lx + 88, ty = 318;
     el('text', { x: lx, y: ty - 16, class: 'ink' }, svg, 'Six worst declines');
     el('text', { x: lx, y: ty, class: 'body' }, svg, 'and years to recover');
     el('text', { x: lx, y: ty + 26, class: 'ink' }, svg, 'Peak');
@@ -135,9 +135,10 @@ body{width:2000px;font-family:var(--body);color:var(--charcoal);-webkit-font-smo
       <ul class="lv-legend">
         <li><i class="bar" style="background:var(--s-st)"></i>Bull market</li>
         <li><i class="bar" style="background:var(--s-inf)"></i>Bear market (20% or more)</li>
+        <li><i class="bar" style="background:rgba(70,64,58,0.16)"></i>Recession</li>
       </ul>
       <div class="lv-chart" id="lv-cycles"></div>
-      <p class="lv-fine">S&amp;P 500 price change, without dividends. Bar width is length in time and height is on a log scale. Years to recover run from the peak until the index closed back at that level. With dividends reinvested, recoveries came sooner.</p>
+      <p class="lv-fine">S&amp;P 500 price, without dividends, on a log scale. Each bull market climbs from the prior low and each bear market falls from the prior high, so every shape starts at zero. Bulls of four years or more are labeled with length, total gain, and yearly pace. Years to recover run from the peak until the index closed back at that level. With dividends reinvested, recoveries came sooner.</p>
     </section>
   </div>
   <div class="pt-col">

@@ -227,29 +227,51 @@
   function dec(s) { var p = s.split('-'); return +p[0] + (p[1] - 1) / 12 + (p[2] - 1) / 365; }
   function month(s) { var p = s.split('-'); return MONTHS[p[1] - 1] + ' ' + p[0]; }
   function renderCycles() {
-    var wrap = document.getElementById('lv-cycles'), f = frame(), h = f.narrow ? 300 : 340;
+    var wrap = document.getElementById('lv-cycles'), f = frame(), h = f.narrow ? 360 : 460;
     wrap.innerHTML = '';
     f.r = f.narrow ? 12 : 20;
-    var svg = el('svg', { viewBox: '0 0 ' + f.w + ' ' + h, height: h, role: 'img', 'aria-label': 'Bars of each S&P 500 bull and bear market from 1928 to 2025, width showing duration and height showing size.' }, wrap);
+    var svg = el('svg', { viewBox: '0 0 ' + f.w + ' ' + h, height: h, role: 'img', 'aria-label': 'Each S&P 500 bull market climbing from its low and each bear market falling from its high, 1928 to 2025, on a log scale.' }, wrap);
     var tip = document.createElement('div'); tip.className = 'lv-tip'; wrap.appendChild(tip);
-    var top = 22, bot = h - 24, x = xScale(f), lim = 2.15;
-    var y = function (c) { return (top + bot) / 2 - Math.log(1 + c) / lim * (bot - top) / 2; };
-    [[-0.75], [-0.5], [1], [3], [6]].forEach(function (t) {
-      var v = t[0];
-      el('line', { x1: f.l, x2: f.w - f.r, y1: y(v), y2: y(v), stroke: 'var(--lv-rule)' }, svg);
-      el('text', { x: f.l - 8, y: y(v) + 4, 'text-anchor': 'end' }, svg, (v > 0 ? '+' : '') + pct(v, 0));
+    var top = 12, bot = h - 26, x = xScale(f), LO = Math.log(0.075), HI = Math.log(11);
+    // y takes a growth ratio (1 = start of the cycle); y(0) below means the baseline
+    var yr = function (r) { return bot - (Math.log(r) - LO) / (HI - LO) * (bot - top); };
+    var y = function (c) { return yr(1 + c); };
+    RECESSIONS.forEach(function (r) { el('rect', { x: x(r[0]), y: top, width: Math.max(1.5, x(r[1]) - x(r[0])), height: bot - top, fill: 'var(--lv-band)' }, svg); });
+    [0.1, 0.5, 2, 5, 10].forEach(function (v) {
+      el('line', { x1: f.l, x2: f.w - f.r, y1: yr(v), y2: yr(v), stroke: 'var(--lv-rule)' }, svg);
+      el('text', { x: f.l - 8, y: yr(v) + 4, 'text-anchor': 'end' }, svg, (v > 1 ? '+' : '') + pct(v - 1, 0));
     });
-    for (var d = 1930; d <= 2020; d += f.narrow ? 20 : 10) el('text', { x: x(d), y: bot + 17, 'text-anchor': 'middle' }, svg, d);
+    el('text', { x: f.l - 8, y: yr(1) + 4, 'text-anchor': 'end' }, svg, '0%');
+    for (var d = 1930; d <= 2020; d += f.narrow ? 20 : 10) el('text', { x: x(d), y: bot + 18, 'text-anchor': 'middle' }, svg, d);
+    function span(c) { return c.m < 12 ? c.m + (c.m === 1 ? ' month' : ' months') : (c.days / 365.25).toFixed(1) + ' years'; }
+    // Which cycles get a printed label, and any nudge to keep neighbors apart.
+    var LAB = { '1929-09-16': {}, '1937-03-10': { anchor: 'end', dx: 2 }, '1938-10-10': { anchor: 'start', dx: 2 }, '1973-01-11': {}, '1987-08-25': {}, '2000-03-24': {}, '2007-10-09': {}, '2020-02-19': {} };
     cycles.forEach(function (c) {
-      var x0 = x(dec(c.start)), x1 = x(dec(c.end)), y1 = y(c.chg), y0 = y(0), bear = c.kind === 'bear';
-      var r = el('rect', { x: x0 + 0.5, y: Math.min(y0, y1), width: Math.max(2, x1 - x0 - 1), height: Math.abs(y1 - y0), fill: bear ? 'var(--s-inf)' : 'var(--s-st)', rx: 1.5 }, svg);
-      var html = '<b>' + (bear ? 'Bear market' : 'Bull market') + '</b>' + month(c.start) + ' to ' + month(c.end) + '<span>Change<em style="font-style:normal">' + (bear ? '' : '+') + pct(c.chg, 0) + '</em></span><span>Length<em style="font-style:normal">' + (c.m < 1 ? 'under 1' : c.m) + ' mo</em></span>';
-      r.addEventListener('pointerenter', function () { tip.innerHTML = html; placeTip(tip, wrap, x1, 4); r.setAttribute('opacity', 0.75); });
-      r.addEventListener('pointerleave', function () { tip.style.display = 'none'; r.removeAttribute('opacity'); });
-      var big = bear ? c.chg <= -0.45 : c.chg >= 2.2;
-      if (big && !(f.narrow && !bear && c.chg < 3.5) && !(f.narrow && bear && c.chg > -0.55)) {
-        el('text', { x: (x0 + x1) / 2, y: bear ? y1 + 15 : y1 - 6, 'text-anchor': 'middle', class: 'ink' }, svg, (bear ? '' : '+') + pct(c.chg, 0));
+      var bear = c.kind === 'bear', x0 = x(dec(c.start)), x1 = x(dec(c.end)), b = yr(1);
+      var pts = [x0.toFixed(1) + ',' + b.toFixed(1)].concat(c.path.map(function (p) { return x(p[0]).toFixed(1) + ',' + yr(p[1]).toFixed(1); }), [x1.toFixed(1) + ',' + b.toFixed(1)]);
+      var shape = el('polygon', { points: pts.join(' '), fill: bear ? 'var(--s-inf)' : 'var(--s-st)', stroke: 'none' }, svg);
+      var ann = Math.pow(1 + c.chg, 365.25 / c.days) - 1;
+      var html = '<b>' + (bear ? 'Bear market' : 'Bull market') + '</b>' + month(c.start) + ' to ' + month(c.end) + '<span>Change<em style="font-style:normal">' + (bear ? '' : '+') + pct(c.chg, 0) + '</em></span><span>Length<em style="font-style:normal">' + span(c) + '</em></span>';
+      shape.addEventListener('pointerenter', function () { tip.innerHTML = html; placeTip(tip, wrap, x1, 4); shape.setAttribute('opacity', 0.8); });
+      shape.addEventListener('pointerleave', function () { tip.style.display = 'none'; shape.removeAttribute('opacity'); });
+      if (f.narrow) return;
+      var lines, lx, ly, anchor = 'middle', col = bear ? 'var(--s-inf)' : 'var(--s-st)';
+      if (bear) {
+        var o = LAB[c.start]; if (!o) return;
+        lines = [span(c), pct(c.chg, 0)];
+        anchor = o.anchor || 'middle';
+        lx = anchor === 'end' ? x1 - o.dx : anchor === 'start' ? x0 + o.dx : (x0 + x1) / 2;
+        ly = y(c.chg) + 17;
+      } else {
+        if (c.m < 48 && c.end < '2025') return;
+        lines = [span(c) + (c.end > '2025' ? ' so far' : ''), '+' + pct(c.chg, 0), pct(ann) + ' a year'];
+        lx = (x0 + x1) / 2;
+        if (lx + 44 > x(END)) { anchor = 'start'; lx = x0 + 2; }
+        ly = y(c.chg) - 40;
       }
+      lines.forEach(function (t, i) {
+        el('text', { x: lx, y: ly + i * 15, 'text-anchor': anchor, style: 'font-size:12.5px;fill:' + col + ';font-weight:' + (i ? 400 : 600) }, svg, t);
+      });
     });
     el('line', { x1: f.l, x2: f.w - f.r, y1: y(0), y2: y(0), stroke: 'var(--slate)' }, svg);
   }
