@@ -1,0 +1,79 @@
+<main class="lv">
+  <div class="lv-wrap">
+    <header class="lv-head">
+      <div class="section-label">The long view</div>
+      <h1>What $1,000 did across 98 years of markets</h1>
+      <div class="lv-rule"></div>
+      <p class="lv-deck">One thousand dollars in the S&amp;P 500 at the start of 1928 grew to about <span id="lv-deck-val">$11.6 million</span> by the end of 2025, with every dividend reinvested and every crash sat through. The arithmetic is simple. Sitting through the crashes is the hard part.</p>
+    </header>
+
+    <section class="lv-block">
+      <div class="lv-row">
+        <div>
+          <h2>Growth of $1,000, 1928 to 2025</h2>
+          <p class="lv-note">Log scale, so equal distances are equal percentage moves. Gray bands are recessions.</p>
+        </div>
+        <div class="lv-toggle" role="group" aria-label="Show values">
+          <button type="button" id="lv-nominal" aria-pressed="true">As reported</button>
+          <button type="button" id="lv-real" aria-pressed="false">After inflation</button>
+        </div>
+      </div>
+      <ul class="lv-legend" id="lv-legend"></ul>
+      <div class="lv-chart" id="lv-main"></div>
+
+      <div class="lv-strip">
+        <h3>What investors were paying: the Shiller CAPE</h3>
+        <p class="lv-note" id="lv-cape-note"></p>
+        <div class="lv-chart" id="lv-cape" style="margin-top:8px"></div>
+      </div>
+      <div class="lv-strip">
+        <h3>Inflation and Treasury bill yields</h3>
+        <ul class="lv-legend">
+          <li><i class="bar" style="background:var(--s-inf)"></i>Inflation (CPI)</li>
+          <li><i style="border-color:var(--s-bl)"></i>3-month Treasury bills</li>
+        </ul>
+        <div class="lv-chart" id="lv-rates"></div>
+      </div>
+    </section>
+
+    <section class="lv-block">
+      <h2>Bull and bear markets</h2>
+      <p class="lv-note" id="lv-cycles-note"></p>
+      <ul class="lv-legend">
+        <li><i class="bar" style="background:var(--s-st)"></i>Bull market</li>
+        <li><i class="bar" style="background:var(--s-inf)"></i>Bear market (20% or more)</li>
+      </ul>
+      <div class="lv-chart" id="lv-cycles"></div>
+      <p class="lv-fine">S&amp;P 500 price change, without dividends. Bar width is length in time. Height is on a log scale, so a 50% loss and the 100% gain that repairs it stand the same size.</p>
+    </section>
+
+    <section class="lv-block">
+      <h2>Time changes the risk</h2>
+      <p class="lv-note" id="lv-time-note"></p>
+      <ul class="lv-legend" id="lv-legend2"></ul>
+      <div class="lv-grid" id="lv-time"></div>
+      <p class="lv-fine">Annualized returns for every rolling calendar-year window. Each bar runs from worst to best, the tick marks the median, and the percentage below is the share of windows with a positive return. All four panels share one scale.</p>
+    </section>
+
+    <section class="lv-block">
+      <h2>The numbers</h2>
+      <div class="lv-tables">
+        <div>
+          <h3>Compound annual returns through 2025</h3>
+          <div class="lv-scroll"><table class="lv-table" id="lv-table-cagr"></table></div>
+        </div>
+        <div>
+          <h3>Annualized by decade</h3>
+          <div class="lv-scroll"><table class="lv-table" id="lv-table-dec"></table></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lv-block">
+      <p class="lv-close">All of this is easy to read in hindsight. Each of those declines arrived with good reasons to sell, and the reasons looked strongest near the bottom. A plan written while you are calm gives you something to hold on to when you are not.</p>
+      <div class="lv-rule"></div>
+      <p class="lv-fine"><strong>For educational purposes only.</strong> This is not personalized investment advice or a recommendation of any security or allocation. Index returns are shown without fees, expenses, or taxes, and you cannot invest directly in an index. The 60/40 portfolio is hypothetical: 60% S&amp;P 500 and 40% 10-year Treasuries, rebalanced each January, and no account earned these results. Past performance does not guarantee future results.</p>
+      <p class="lv-fine"><strong>Sources and method.</strong> Annual returns and inflation: Aswath Damodaran, NYU Stern, Historical Returns on Stocks, Bonds and Bills. CAPE: Robert J. Shiller, Yale, U.S. Stock Markets data, December readings. Bull and bear markets: S&amp;P 500 daily closes from Yahoo Finance, including its predecessor index before 1957. A bear is a closing decline of 20% or more, and a rally under 12 months that ends in a new low stays inside the bear, so some lists will split these differently. Recessions: National Bureau of Economic Research. Data begins in 1928.</p>
+    </section>
+  </div>
+</main>

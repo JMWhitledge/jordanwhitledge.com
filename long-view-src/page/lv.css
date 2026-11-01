@@ -1,0 +1,44 @@
+<style>
+  .lv { --s-st:#1B2A4A; --s-bal:#B5823F; --s-bd:#0F8577; --s-bl:#8A5CC8; --s-inf:#B4472F; --lv-rule:rgba(70,64,58,0.14); --lv-band:rgba(70,64,58,0.075); color:var(--charcoal); }
+  .lv-wrap { max-width:1180px; margin:0 auto; padding:0 40px; }
+  .lv-head { padding:64px 0 36px; }
+  .lv-head .section-label { margin-bottom:10px; }
+  .lv-head h1 { font-family:var(--heading); font-weight:400; color:var(--navy); font-size:clamp(2rem,4.4vw,3.1rem); line-height:1.14; max-width:19em; }
+  .lv-rule { width:48px; height:2px; background:var(--gold); margin:20px 0; }
+  .lv-deck { font-size:1.12rem; max-width:40em; }
+  .lv-block { padding:34px 0 40px; border-top:1px solid var(--lv-rule); }
+  .lv-block h2 { font-family:var(--heading); font-weight:500; color:var(--navy); font-size:1.5rem; line-height:1.25; }
+  .lv-block h3 { font-family:var(--heading); font-weight:500; color:var(--navy); font-size:1.15rem; line-height:1.3; }
+  .lv-note { max-width:44em; margin-top:6px; font-size:0.98rem; }
+  .lv-row { display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .lv-legend { display:flex; flex-wrap:wrap; gap:6px 18px; margin:14px 0 8px; font-size:0.86rem; color:var(--charcoal); list-style:none; }
+  .lv-legend li { display:flex; align-items:center; gap:7px; }
+  .lv-legend i { display:block; width:18px; height:0; border-top:2.5px solid; }
+  .lv-legend i.bar { height:10px; width:10px; border:0; border-radius:2px; }
+  .lv-toggle { display:inline-flex; border:1px solid rgba(27,42,74,0.3); border-radius:4px; overflow:hidden; }
+  .lv-toggle button { font:500 0.86rem var(--body); padding:7px 14px; min-height:36px; border:0; background:transparent; color:var(--navy); cursor:pointer; }
+  .lv-toggle button[aria-pressed="true"] { background:var(--navy); color:#fff; }
+  .lv-toggle button:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+  .lv-chart { position:relative; width:100%; }
+  .lv-chart svg { display:block; width:100%; overflow:visible; touch-action:pan-y; }
+  .lv-chart text { font-family:var(--body); font-size:12px; fill:var(--slate); }
+  .lv-chart text.ink { fill:var(--navy); font-weight:600; }
+  .lv-chart text.body { fill:var(--charcoal); }
+  .lv-tip { position:absolute; top:8px; left:0; z-index:5; pointer-events:none; display:none; min-width:150px; background:var(--navy-deep); color:#fff; border-radius:4px; padding:8px 11px; font-size:0.8rem; line-height:1.45; box-shadow:0 6px 18px rgba(17,29,51,0.25); }
+  .lv-tip b { display:block; font-weight:600; margin-bottom:3px; color:var(--gold-light); }
+  .lv-tip span { display:flex; justify-content:space-between; gap:16px; }
+  .lv-strip { margin-top:30px; }
+  .lv-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:16px; }
+  .lv-grid h3 { font-family:var(--body); font-size:0.92rem; font-weight:600; margin-bottom:4px; }
+  .lv-scroll { overflow-x:auto; margin-top:12px; -webkit-overflow-scrolling:touch; }
+  .lv-table { border-collapse:collapse; width:100%; font-size:0.9rem; font-variant-numeric:tabular-nums; }
+  .lv-table th, .lv-table td { padding:7px 12px; text-align:right; border-bottom:1px solid var(--lv-rule); white-space:nowrap; }
+  .lv-table thead th { color:var(--navy); font-weight:600; border-bottom:2px solid rgba(181,130,63,0.6); }
+  .lv-table th:first-child { text-align:left; font-weight:500; color:var(--navy); position:sticky; left:0; background:var(--paper); }
+  .lv-tables { display:grid; grid-template-columns:1fr; gap:32px; margin-top:12px; }
+  .lv-tables > div { min-width:0; }
+  .lv-close { font-family:var(--essay); font-size:1.2rem; line-height:1.6; color:var(--navy); max-width:36em; }
+  .lv-fine { font-size:0.8rem; line-height:1.6; color:var(--slate); max-width:62em; margin-top:10px; }
+  @media (max-width:980px) { .lv-grid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px) { .lv-wrap { padding:0 16px; } .lv-head { padding:36px 0 24px; } .lv-grid { gap:14px; } .lv-table th, .lv-table td { padding:7px 9px; } }
+</style>
